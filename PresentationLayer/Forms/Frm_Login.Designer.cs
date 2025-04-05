@@ -1,0 +1,192 @@
+﻿namespace PresentationLayer
+{
+    partial class frm_login
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            lb_frm_login_title = new Label();
+            panel_frm_login = new Panel();
+            lb_userName = new Label();
+            lb_password = new Label();
+            txt_userName = new TextBox();
+            txt_password = new TextBox();
+            btn_submit = new Button();
+            linkLabel_register = new LinkLabel();
+            btn_hideFrm = new Button();
+            btn_smallFrm = new Button();
+            btn_exitFrm = new Button();
+            SuspendLayout();
+            // 
+            // lb_frm_login_title
+            // 
+            lb_frm_login_title.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lb_frm_login_title.Location = new Point(731, 136);
+            lb_frm_login_title.Name = "lb_frm_login_title";
+            lb_frm_login_title.Size = new Size(318, 63);
+            lb_frm_login_title.TabIndex = 2;
+            lb_frm_login_title.Text = "Đăng nhập";
+            lb_frm_login_title.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel_frm_login
+            // 
+            panel_frm_login.BackColor = Color.PaleGreen;
+            panel_frm_login.Location = new Point(0, 0);
+            panel_frm_login.Name = "panel_frm_login";
+            panel_frm_login.Size = new Size(580, 713);
+            panel_frm_login.TabIndex = 3;
+            // 
+            // lb_userName
+            // 
+            lb_userName.AutoSize = true;
+            lb_userName.Location = new Point(625, 242);
+            lb_userName.Name = "lb_userName";
+            lb_userName.Size = new Size(107, 20);
+            lb_userName.TabIndex = 4;
+            lb_userName.Text = "Tên đăng nhập";
+            lb_userName.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lb_password
+            // 
+            lb_password.AutoSize = true;
+            lb_password.Location = new Point(625, 316);
+            lb_password.Name = "lb_password";
+            lb_password.Size = new Size(70, 20);
+            lb_password.TabIndex = 5;
+            lb_password.Text = "Mật khẩu";
+            lb_password.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txt_userName
+            // 
+            txt_userName.Location = new Point(763, 242);
+            txt_userName.Name = "txt_userName";
+            txt_userName.Size = new Size(286, 27);
+            txt_userName.TabIndex = 6;
+            // 
+            // txt_password
+            // 
+            txt_password.Location = new Point(763, 309);
+            txt_password.Name = "txt_password";
+            txt_password.PasswordChar = '*';
+            txt_password.Size = new Size(286, 27);
+            txt_password.TabIndex = 7;
+            // 
+            // btn_submit
+            // 
+            btn_submit.BackColor = Color.Aqua;
+            btn_submit.ForeColor = Color.Black;
+            btn_submit.Location = new Point(763, 416);
+            btn_submit.Name = "btn_submit";
+            btn_submit.Size = new Size(286, 60);
+            btn_submit.TabIndex = 8;
+            btn_submit.Text = "Đăng nhập";
+            btn_submit.UseVisualStyleBackColor = false;
+            btn_submit.Click += btn_submit_Click;
+            // 
+            // linkLabel_register
+            // 
+            linkLabel_register.AutoSize = true;
+            linkLabel_register.Location = new Point(986, 375);
+            linkLabel_register.Name = "linkLabel_register";
+            linkLabel_register.Size = new Size(63, 20);
+            linkLabel_register.TabIndex = 9;
+            linkLabel_register.TabStop = true;
+            linkLabel_register.Text = "Đăng ký";
+            // 
+            // btn_hideFrm
+            // 
+            btn_hideFrm.BackColor = Color.Silver;
+            btn_hideFrm.ForeColor = Color.White;
+            btn_hideFrm.Location = new Point(966, 12);
+            btn_hideFrm.Name = "btn_hideFrm";
+            btn_hideFrm.Size = new Size(40, 40);
+            btn_hideFrm.TabIndex = 12;
+            btn_hideFrm.Text = "-";
+            btn_hideFrm.UseVisualStyleBackColor = false;
+            // 
+            // btn_smallFrm
+            // 
+            btn_smallFrm.BackColor = Color.Red;
+            btn_smallFrm.ForeColor = Color.White;
+            btn_smallFrm.Location = new Point(1042, 12);
+            btn_smallFrm.Name = "btn_smallFrm";
+            btn_smallFrm.Size = new Size(40, 40);
+            btn_smallFrm.TabIndex = 11;
+            btn_smallFrm.Text = "[ ]";
+            btn_smallFrm.UseVisualStyleBackColor = false;
+            // 
+            // btn_exitFrm
+            // 
+            btn_exitFrm.BackColor = Color.Red;
+            btn_exitFrm.ForeColor = Color.White;
+            btn_exitFrm.Location = new Point(1111, 12);
+            btn_exitFrm.Name = "btn_exitFrm";
+            btn_exitFrm.Size = new Size(40, 40);
+            btn_exitFrm.TabIndex = 10;
+            btn_exitFrm.Text = "x";
+            btn_exitFrm.UseVisualStyleBackColor = false;
+            btn_exitFrm.Click += btn_exitFrm_Click;
+            // 
+            // frm_login
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1163, 713);
+            Controls.Add(btn_hideFrm);
+            Controls.Add(btn_smallFrm);
+            Controls.Add(btn_exitFrm);
+            Controls.Add(linkLabel_register);
+            Controls.Add(btn_submit);
+            Controls.Add(txt_password);
+            Controls.Add(txt_userName);
+            Controls.Add(lb_password);
+            Controls.Add(lb_userName);
+            Controls.Add(panel_frm_login);
+            Controls.Add(lb_frm_login_title);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "frm_login";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Đăng nhập";
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label lb_frm_login_title;
+        private Panel panel_frm_login;
+        private Label lb_userName;
+        private Label lb_password;
+        private TextBox txt_userName;
+        private TextBox txt_password;
+        private Button btn_submit;
+        private LinkLabel linkLabel_register;
+        private Button btn_hideFrm;
+        private Button btn_smallFrm;
+        private Button btn_exitFrm;
+    }
+}

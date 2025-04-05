@@ -1,0 +1,11 @@
+D:\System_Restaurant\TransferObject\bin\Debug\net7.0\TransferObject.deps.json
+D:\System_Restaurant\TransferObject\bin\Debug\net7.0\TransferObject.dll
+D:\System_Restaurant\TransferObject\bin\Debug\net7.0\TransferObject.pdb
+D:\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.GeneratedMSBuildEditorConfig.editorconfig
+D:\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.AssemblyInfoInputs.cache
+D:\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.AssemblyInfo.cs
+D:\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.csproj.CoreCompileInputs.cache
+D:\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.dll
+D:\System_Restaurant\TransferObject\obj\Debug\net7.0\refint\TransferObject.dll
+D:\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.pdb
+D:\System_Restaurant\TransferObject\obj\Debug\net7.0\ref\TransferObject.dll
