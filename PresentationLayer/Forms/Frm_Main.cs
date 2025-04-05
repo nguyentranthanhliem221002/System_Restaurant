@@ -102,7 +102,7 @@ namespace PresentationLayer
 
         private void btn_frm_target_manager_Click(object sender, EventArgs e)
         {
-            OpenChildForm(_serviceProvider.GetRequiredService<frm_target_manager>());
+            OpenChildForm(_serviceProvider.GetRequiredService<frm_orders_manager>());
         }
 
         private void btn_users_manager_Click(object sender, EventArgs e)

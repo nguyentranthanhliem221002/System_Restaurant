@@ -161,6 +161,7 @@
             btn_print.TabIndex = 24;
             btn_print.Text = "In hóa đơn";
             btn_print.UseVisualStyleBackColor = true;
+            btn_print.Click += btn_print_Click;
             // 
             // groupBox_optionPays
             // 
@@ -184,6 +185,7 @@
             radioButton_optionMomo.TabStop = true;
             radioButton_optionMomo.Text = "Momo";
             radioButton_optionMomo.UseVisualStyleBackColor = true;
+            radioButton_optionMomo.CheckedChanged += radioButton_optionMomo_CheckedChanged;
             // 
             // radioButton_optionBank
             // 

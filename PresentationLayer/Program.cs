@@ -87,7 +87,6 @@ namespace PresentationLayer
             services.AddTransient<frm_tables_manager>();
             services.AddTransient<frm_orders_manager>();
             services.AddTransient<frm_orderDetails_manager>();
-            services.AddTransient<frm_target_manager>();      
             services.AddTransient<frm_users_manager>();
             services.AddTransient<frm_roles_manager>();
             services.AddTransient<frm_employees_manager>();
