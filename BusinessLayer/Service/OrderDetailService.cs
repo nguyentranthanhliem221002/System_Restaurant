@@ -24,5 +24,9 @@ namespace BusinessLayer.Service
         {
             return _orderDetailRepository.GetOrderDetailsByOrderId(orderId);
         }
+        public List<OrderDetail> GetOrderDetailsByTableId(int tableId)
+        {
+            return _orderDetailRepository.GetOrderDetailsByTableId(tableId);
+        }
     }
 }

@@ -26,6 +26,14 @@ namespace DataLayer.Repository
         {
             return _context.OrderDetails.Where(od => od.OrderId == orderId).ToList();
         }
-  
+        public List<OrderDetail> GetOrderDetailsByTableId(int tableId)
+        {
+            // Lấy tất cả các chi tiết đơn hàng (OrderDetail) từ một đơn hàng có liên kết với tableId
+            return _context.OrderDetails
+                           .Where(od => od.Order.TableId == tableId)  // Điều kiện lọc theo TableId
+                           .Include(od => od.Food)  // Bao gồm thông tin món ăn (Food)
+                           .ToList();
+        }
+
     }
 }

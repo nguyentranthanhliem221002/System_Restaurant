@@ -49,7 +49,6 @@
             dgv_listEmployee.AllowUserToAddRows = false;
             dgv_listEmployee.AllowUserToDeleteRows = false;
             dgv_listEmployee.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_listEmployee.BackgroundColor = SystemColors.Control;
             dgv_listEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_listEmployee.Dock = DockStyle.Fill;
             dgv_listEmployee.Location = new Point(3, 23);
@@ -62,6 +61,7 @@
             // btn_categorySearch
             // 
             btn_categorySearch.BackColor = Color.Aqua;
+            btn_categorySearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btn_categorySearch.Location = new Point(833, 110);
             btn_categorySearch.Name = "btn_categorySearch";
             btn_categorySearch.Size = new Size(303, 43);
@@ -91,6 +91,7 @@
             // btn_employeeUpdate
             // 
             btn_employeeUpdate.BackColor = Color.Coral;
+            btn_employeeUpdate.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btn_employeeUpdate.Location = new Point(878, 641);
             btn_employeeUpdate.Name = "btn_employeeUpdate";
             btn_employeeUpdate.Size = new Size(258, 60);
@@ -101,6 +102,7 @@
             // btn_employeeFix
             // 
             btn_employeeFix.BackColor = Color.Silver;
+            btn_employeeFix.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btn_employeeFix.ForeColor = SystemColors.ControlText;
             btn_employeeFix.Location = new Point(599, 641);
             btn_employeeFix.Name = "btn_employeeFix";
@@ -111,6 +113,7 @@
             // 
             // btn_employeeDelete
             // 
+            btn_employeeDelete.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btn_employeeDelete.Location = new Point(317, 641);
             btn_employeeDelete.Name = "btn_employeeDelete";
             btn_employeeDelete.Size = new Size(258, 60);
@@ -121,6 +124,7 @@
             // btn_employeeAdd
             // 
             btn_employeeAdd.BackColor = Color.Chartreuse;
+            btn_employeeAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btn_employeeAdd.ForeColor = Color.Black;
             btn_employeeAdd.Location = new Point(36, 641);
             btn_employeeAdd.Name = "btn_employeeAdd";
@@ -172,7 +176,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.MistyRose;
             ClientSize = new Size(1163, 713);
             Controls.Add(btn_categorySearch);
             Controls.Add(txt_employeeSearch);

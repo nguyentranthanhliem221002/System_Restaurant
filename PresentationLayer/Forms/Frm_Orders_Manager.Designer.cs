@@ -144,7 +144,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.MistyRose;
             ClientSize = new Size(1163, 713);
             Controls.Add(groupBox_listRole);
             Controls.Add(lb_frm_orders_manager_title);

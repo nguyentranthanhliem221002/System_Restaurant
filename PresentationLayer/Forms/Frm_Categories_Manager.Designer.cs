@@ -88,7 +88,6 @@
             dgv_listCategory.AllowUserToAddRows = false;
             dgv_listCategory.AllowUserToDeleteRows = false;
             dgv_listCategory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_listCategory.BackgroundColor = SystemColors.Control;
             dgv_listCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_listCategory.Dock = DockStyle.Fill;
             dgv_listCategory.Location = new Point(3, 23);
@@ -101,6 +100,7 @@
             // btn_categoryAdd
             // 
             btn_categoryAdd.BackColor = Color.Chartreuse;
+            btn_categoryAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btn_categoryAdd.ForeColor = Color.Black;
             btn_categoryAdd.Location = new Point(28, 641);
             btn_categoryAdd.Name = "btn_categoryAdd";
@@ -112,6 +112,7 @@
             // 
             // btn_categoryDelete
             // 
+            btn_categoryDelete.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btn_categoryDelete.Location = new Point(309, 641);
             btn_categoryDelete.Name = "btn_categoryDelete";
             btn_categoryDelete.Size = new Size(258, 60);
@@ -123,6 +124,7 @@
             // btn_categoryFix
             // 
             btn_categoryFix.BackColor = Color.Silver;
+            btn_categoryFix.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btn_categoryFix.ForeColor = SystemColors.ControlText;
             btn_categoryFix.Location = new Point(591, 641);
             btn_categoryFix.Name = "btn_categoryFix";
@@ -135,6 +137,7 @@
             // btn_categoryUpdate
             // 
             btn_categoryUpdate.BackColor = Color.Coral;
+            btn_categoryUpdate.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btn_categoryUpdate.Location = new Point(870, 641);
             btn_categoryUpdate.Name = "btn_categoryUpdate";
             btn_categoryUpdate.Size = new Size(258, 60);
@@ -165,11 +168,12 @@
             // btn_categorySearch
             // 
             btn_categorySearch.BackColor = Color.Aqua;
+            btn_categorySearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btn_categorySearch.Location = new Point(825, 110);
             btn_categorySearch.Name = "btn_categorySearch";
             btn_categorySearch.Size = new Size(303, 43);
             btn_categorySearch.TabIndex = 43;
-            btn_categorySearch.Text = "Search";
+            btn_categorySearch.Text = "Tìm kiếm";
             btn_categorySearch.UseVisualStyleBackColor = false;
             btn_categorySearch.Click += btn_categorySearch_Click;
             // 
@@ -177,7 +181,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.MistyRose;
             ClientSize = new Size(1163, 713);
             Controls.Add(btn_categorySearch);
             Controls.Add(txt_categorySearch);

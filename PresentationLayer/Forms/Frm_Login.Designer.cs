@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_login));
             lb_frm_login_title = new Label();
             panel_frm_login = new Panel();
             lb_userName = new Label();
@@ -53,7 +54,8 @@
             // 
             // panel_frm_login
             // 
-            panel_frm_login.BackColor = Color.PaleGreen;
+            panel_frm_login.BackColor = Color.White;
+            panel_frm_login.BackgroundImage = (Image)resources.GetObject("panel_frm_login.BackgroundImage");
             panel_frm_login.Location = new Point(0, 0);
             panel_frm_login.Name = "panel_frm_login";
             panel_frm_login.Size = new Size(580, 713);
@@ -96,9 +98,9 @@
             // 
             // btn_submit
             // 
-            btn_submit.BackColor = Color.Aqua;
+            btn_submit.BackColor = Color.Red;
             btn_submit.ForeColor = Color.Black;
-            btn_submit.Location = new Point(763, 416);
+            btn_submit.Location = new Point(763, 411);
             btn_submit.Name = "btn_submit";
             btn_submit.Size = new Size(286, 60);
             btn_submit.TabIndex = 8;
@@ -109,7 +111,7 @@
             // linkLabel_register
             // 
             linkLabel_register.AutoSize = true;
-            linkLabel_register.Location = new Point(986, 375);
+            linkLabel_register.Location = new Point(986, 356);
             linkLabel_register.Name = "linkLabel_register";
             linkLabel_register.Size = new Size(63, 20);
             linkLabel_register.TabIndex = 9;
@@ -154,7 +156,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.LightSalmon;
             ClientSize = new Size(1163, 713);
             Controls.Add(btn_hideFrm);
             Controls.Add(btn_smallFrm);

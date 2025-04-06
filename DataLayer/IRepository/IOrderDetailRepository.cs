@@ -7,5 +7,6 @@ namespace DataLayer.IRepository
     {
         void SaveOrderDetail(OrderDetail orderDetail);
         IEnumerable<OrderDetail> GetOrderDetailsByOrderId(int orderId);
+        List<OrderDetail> GetOrderDetailsByTableId(int tableId);
     }
 }

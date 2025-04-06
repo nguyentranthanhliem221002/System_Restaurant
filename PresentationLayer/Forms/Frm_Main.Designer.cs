@@ -28,15 +28,18 @@ partial class frm_main
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
         panel_sidebar = new Panel();
         btn_frm_employees_manager = new Button();
         btn_frm_roles_manager = new Button();
-        btn_frm_target_manager = new Button();
+        btn_frm_orders_manager = new Button();
         btn_users_manager = new Button();
         btn_frm_foods_manager = new Button();
         btn_frm_tables_manager = new Button();
         panel_nav = new Panel();
         lb_frm_main_title = new Label();
+        label1 = new Label();
+        lb_roleName = new Label();
         btn_hideFrm = new Button();
         btn_smallFrm = new Button();
         btn_exitFrm = new Button();
@@ -47,10 +50,10 @@ partial class frm_main
         // 
         // panel_sidebar
         // 
-        panel_sidebar.BackColor = Color.SkyBlue;
+        panel_sidebar.BackColor = Color.LightSalmon;
         panel_sidebar.Controls.Add(btn_frm_employees_manager);
         panel_sidebar.Controls.Add(btn_frm_roles_manager);
-        panel_sidebar.Controls.Add(btn_frm_target_manager);
+        panel_sidebar.Controls.Add(btn_frm_orders_manager);
         panel_sidebar.Controls.Add(btn_users_manager);
         panel_sidebar.Controls.Add(btn_frm_foods_manager);
         panel_sidebar.Controls.Add(btn_frm_tables_manager);
@@ -61,6 +64,7 @@ partial class frm_main
         // 
         // btn_frm_employees_manager
         // 
+        btn_frm_employees_manager.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
         btn_frm_employees_manager.Location = new Point(12, 247);
         btn_frm_employees_manager.Name = "btn_frm_employees_manager";
         btn_frm_employees_manager.Size = new Size(202, 88);
@@ -71,6 +75,7 @@ partial class frm_main
         // 
         // btn_frm_roles_manager
         // 
+        btn_frm_roles_manager.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
         btn_frm_roles_manager.Location = new Point(12, 490);
         btn_frm_roles_manager.Name = "btn_frm_roles_manager";
         btn_frm_roles_manager.Size = new Size(202, 88);
@@ -79,18 +84,20 @@ partial class frm_main
         btn_frm_roles_manager.UseVisualStyleBackColor = true;
         btn_frm_roles_manager.Click += btn_frm_roles_manager_Click;
         // 
-        // btn_frm_target_manager
+        // btn_frm_orders_manager
         // 
-        btn_frm_target_manager.Location = new Point(12, 364);
-        btn_frm_target_manager.Name = "btn_frm_target_manager";
-        btn_frm_target_manager.Size = new Size(202, 88);
-        btn_frm_target_manager.TabIndex = 3;
-        btn_frm_target_manager.Text = "Doanh thu";
-        btn_frm_target_manager.UseVisualStyleBackColor = true;
-        btn_frm_target_manager.Click += btn_frm_target_manager_Click;
+        btn_frm_orders_manager.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+        btn_frm_orders_manager.Location = new Point(12, 364);
+        btn_frm_orders_manager.Name = "btn_frm_orders_manager";
+        btn_frm_orders_manager.Size = new Size(202, 88);
+        btn_frm_orders_manager.TabIndex = 3;
+        btn_frm_orders_manager.Text = "Doanh thu";
+        btn_frm_orders_manager.UseVisualStyleBackColor = true;
+        btn_frm_orders_manager.Click += btn_frm_order_manager_Click;
         // 
         // btn_users_manager
         // 
+        btn_users_manager.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
         btn_users_manager.Location = new Point(12, 613);
         btn_users_manager.Name = "btn_users_manager";
         btn_users_manager.Size = new Size(202, 88);
@@ -101,6 +108,7 @@ partial class frm_main
         // 
         // btn_frm_foods_manager
         // 
+        btn_frm_foods_manager.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
         btn_frm_foods_manager.Location = new Point(12, 129);
         btn_frm_foods_manager.Name = "btn_frm_foods_manager";
         btn_frm_foods_manager.Size = new Size(202, 88);
@@ -111,6 +119,7 @@ partial class frm_main
         // 
         // btn_frm_tables_manager
         // 
+        btn_frm_tables_manager.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
         btn_frm_tables_manager.Location = new Point(12, 6);
         btn_frm_tables_manager.Name = "btn_frm_tables_manager";
         btn_frm_tables_manager.Size = new Size(202, 88);
@@ -121,11 +130,13 @@ partial class frm_main
         // 
         // panel_nav
         // 
-        panel_nav.BackColor = Color.DarkCyan;
+        panel_nav.BackColor = Color.Tomato;
+        panel_nav.Controls.Add(label1);
         panel_nav.Controls.Add(lb_frm_main_title);
+        panel_nav.Controls.Add(btn_exitFrm);
+        panel_nav.Controls.Add(lb_roleName);
         panel_nav.Controls.Add(btn_hideFrm);
         panel_nav.Controls.Add(btn_smallFrm);
-        panel_nav.Controls.Add(btn_exitFrm);
         panel_nav.Location = new Point(0, -1);
         panel_nav.Name = "panel_nav";
         panel_nav.Size = new Size(1391, 88);
@@ -142,11 +153,34 @@ partial class frm_main
         lb_frm_main_title.Text = "System Restaurant";
         lb_frm_main_title.TextAlign = ContentAlignment.MiddleLeft;
         // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        label1.ForeColor = Color.White;
+        label1.Location = new Point(931, 33);
+        label1.Name = "label1";
+        label1.Size = new Size(163, 28);
+        label1.TabIndex = 5;
+        label1.Text = "Đăng nhập bởi :";
+        label1.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // lb_roleName
+        // 
+        lb_roleName.AutoSize = true;
+        lb_roleName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        lb_roleName.Location = new Point(1100, 33);
+        lb_roleName.Name = "lb_roleName";
+        lb_roleName.Size = new Size(39, 28);
+        lb_roleName.TabIndex = 4;
+        lb_roleName.Text = "???";
+        lb_roleName.TextAlign = ContentAlignment.MiddleLeft;
+        // 
         // btn_hideFrm
         // 
         btn_hideFrm.BackColor = Color.Silver;
         btn_hideFrm.ForeColor = Color.White;
-        btn_hideFrm.Location = new Point(1189, 25);
+        btn_hideFrm.Location = new Point(1240, 26);
         btn_hideFrm.Name = "btn_hideFrm";
         btn_hideFrm.Size = new Size(35, 35);
         btn_hideFrm.TabIndex = 2;
@@ -157,7 +191,7 @@ partial class frm_main
         // 
         btn_smallFrm.BackColor = Color.Red;
         btn_smallFrm.ForeColor = Color.White;
-        btn_smallFrm.Location = new Point(1265, 25);
+        btn_smallFrm.Location = new Point(1293, 26);
         btn_smallFrm.Name = "btn_smallFrm";
         btn_smallFrm.Size = new Size(35, 35);
         btn_smallFrm.TabIndex = 1;
@@ -168,7 +202,7 @@ partial class frm_main
         // 
         btn_exitFrm.BackColor = Color.Red;
         btn_exitFrm.ForeColor = Color.White;
-        btn_exitFrm.Location = new Point(1334, 25);
+        btn_exitFrm.Location = new Point(1343, 26);
         btn_exitFrm.Name = "btn_exitFrm";
         btn_exitFrm.Size = new Size(35, 35);
         btn_exitFrm.TabIndex = 0;
@@ -179,9 +213,11 @@ partial class frm_main
         // panel_container
         // 
         panel_container.BackColor = SystemColors.Control;
-        panel_container.Location = new Point(228, 87);
+        panel_container.BackgroundImage = (Image)resources.GetObject("panel_container.BackgroundImage");
+        panel_container.BackgroundImageLayout = ImageLayout.Stretch;
+        panel_container.Location = new Point(220, 87);
         panel_container.Name = "panel_container";
-        panel_container.Size = new Size(1163, 713);
+        panel_container.Size = new Size(1171, 713);
         panel_container.TabIndex = 0;
         // 
         // frm_main
@@ -197,8 +233,10 @@ partial class frm_main
         Name = "frm_main";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Trang chủ";
+        Load += frm_main_Load;
         panel_sidebar.ResumeLayout(false);
         panel_nav.ResumeLayout(false);
+        panel_nav.PerformLayout();
         ResumeLayout(false);
     }
 
@@ -216,5 +254,7 @@ partial class frm_main
     private Button btn_frm_foods_manager;
     private Button btn_frm_employees_manager;
     private Button btn_frm_roles_manager;
-    private Button btn_frm_target_manager;
+    private Button btn_frm_orders_manager;
+    private Label lb_roleName;
+    private Label label1;
 }

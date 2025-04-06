@@ -125,11 +125,11 @@ namespace PresentationLayer
         {
             dgv_orderDetail.Rows.Clear();
 
-            if (_tableService.GetLatestTableStatus(_selectedTable.Id) != TableStatus.Ordered)
-            {
-                MessageBox.Show("Chỉ hiển thị chi tiết món ăn khi bàn đang ở trạng thái đã đặt món.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            //if (_tableService.GetLatestTableStatus(_selectedTable.Id) != TableStatus.Ordered)
+            //{
+            //    MessageBox.Show("Chỉ hiển thị chi tiết món ăn khi bàn đang ở trạng thái đã đặt món.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return;
+            //}
 
             foreach (var order in orders)
             {

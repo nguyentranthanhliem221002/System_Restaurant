@@ -46,8 +46,9 @@ namespace PresentationLayer
             btn_frm_foods_manager.Visible = true;
             btn_frm_employees_manager.Visible = true;
             btn_frm_roles_manager.Visible = true;
-            btn_frm_target_manager.Visible = true;
+            btn_frm_orders_manager.Visible = true;
             btn_users_manager.Visible = true;
+            lb_roleName.Text = RoleType.admin.ToString();
         }
 
         private void ShowEmployeeButtons()
@@ -57,12 +58,20 @@ namespace PresentationLayer
             btn_frm_foods_manager.Visible = false;
             btn_frm_employees_manager.Visible = false;
             btn_frm_roles_manager.Visible = false;
-            btn_frm_target_manager.Visible = false;
-            btn_users_manager.Visible = false;
+            btn_frm_orders_manager.Visible = false;
+            btn_users_manager.Visible = true;
+            lb_roleName.Text = RoleType.employee.ToString();
+
         }
 
         public void OpenChildForm(Form childForm)
         {
+            if (childForm.IsMdiContainer)
+            {
+                MessageBox.Show("Không thể mở Form dạng MDI bên trong panel.");
+                return;
+            }
+
             // Nếu đã có form con đang mở, đóng nó trước
             if (activeForm != null)
             {
@@ -73,10 +82,9 @@ namespace PresentationLayer
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            this.panel_container.Controls.Add(childForm); 
+            this.panel_container.Controls.Add(childForm);
             this.panel_container.Tag = childForm;
             childForm.BringToFront();
-
             childForm.Show();
         }
 
@@ -100,7 +108,7 @@ namespace PresentationLayer
             OpenChildForm(_serviceProvider.GetRequiredService<frm_roles_manager>());
         }
 
-        private void btn_frm_target_manager_Click(object sender, EventArgs e)
+        private void btn_frm_order_manager_Click(object sender, EventArgs e)
         {
             OpenChildForm(_serviceProvider.GetRequiredService<frm_orders_manager>());
         }
@@ -108,6 +116,12 @@ namespace PresentationLayer
         private void btn_users_manager_Click(object sender, EventArgs e)
         {
             OpenChildForm(_serviceProvider.GetRequiredService<frm_users_manager>());
+
+        }
+
+        private void frm_main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

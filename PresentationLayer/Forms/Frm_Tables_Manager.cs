@@ -4,7 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using System.Drawing;
 using QRCoder;
-using OfficeOpenXml;  // Thêm thư viện này nếu chưa có
+using OfficeOpenXml;
+using ClosedXML.Excel;  // Thêm thư viện này nếu chưa có
 
 namespace PresentationLayer
 {
@@ -12,14 +13,17 @@ namespace PresentationLayer
     {
         private readonly TableService _tableService;
         private readonly OrderService _orderService;
+        private readonly OrderDetailService _orderDetailService;
         private readonly IServiceProvider _serviceProvider;
         private readonly ContextMenuStrip _contextMenuStrip;
 
-        public frm_tables_manager(TableService tableService, OrderService orderService, IServiceProvider serviceProvider)
+        public frm_tables_manager(TableService tableService, OrderService orderService, IServiceProvider serviceProvider, OrderDetailService orderDetailService)
         {
             InitializeComponent();
             _tableService = tableService ?? throw new ArgumentNullException(nameof(tableService));
             _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
+            _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
+            _orderDetailService = orderDetailService ?? throw new ArgumentNullException(nameof(orderDetailService));
             _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
 
             _contextMenuStrip = new ContextMenuStrip();
@@ -300,57 +304,100 @@ namespace PresentationLayer
                 return;
             }
 
-            // Giả sử bạn có đối tượng Order liên quan đến bàn này
-            var order = GetOrderForTable(selectedTable); // Bạn cần có một phương thức để lấy đối tượng Order cho bàn này
-
-            // Tạo và lưu hóa đơn vào file Excel
-            SaveOrderToExcel(order);
+            // Lấy id của bàn và gọi SaveOrderToExcel
+            SaveOrderToExcel(selectedTable.Id); // Truyền tableId vào đây
         }
-        private void SaveOrderToExcel(Order order)
+        private void SaveOrderToExcel(int tableId)
         {
-            // Tạo một đối tượng ExcelPackage
-            using (var package = new ExcelPackage())
+            // Lấy tất cả OrderDetail từ ListView thay vì từ service
+            var orderDetails = new List<OrderDetail>();
+
+            // Giả sử listView_orderDetail là tên ListView chứa các chi tiết đơn hàng
+            foreach (ListViewItem item in listView_orderDetail.Items)
             {
-                // Thêm một worksheet mới vào file Excel
-                var worksheet = package.Workbook.Worksheets.Add("Hóa Đơn");
+                var orderDetail = new OrderDetail
+                {
+                    Food = new Food
+                    {
+                        Name = item.SubItems[0].Text,  // Tên món (SubItem[0] chứa tên món)
+                        Price = Convert.ToDecimal(item.SubItems[1].Text)  // Giá món (SubItem[1] chứa giá)
+                    },
+                    Quantity = Convert.ToInt32(item.SubItems[2].Text)  // Số lượng (SubItem[2] chứa số lượng)
+                };
+
+                orderDetails.Add(orderDetail);
+            }
+
+            if (orderDetails == null || !orderDetails.Any())
+            {
+                MessageBox.Show("Không tìm thấy chi tiết đơn hàng cho bàn này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Tạo workbook và worksheet
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Hóa Đơn");
 
                 // Thiết lập các tiêu đề cột
-                worksheet.Cells[1, 1].Value = "Tên món";
-                worksheet.Cells[1, 2].Value = "Giá";
-                worksheet.Cells[1, 3].Value = "Số lượng";
-                worksheet.Cells[1, 4].Value = "Tổng tiền";
+                worksheet.Cell(1, 1).Value = "Hóa đơn";
+                worksheet.Cell(1, 2).Value = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");  // Ngày tháng năm và giờ phút giây
+                worksheet.Cell(1, 3).Value = "Người thực hiện";  // Thêm cột "Ai thực hiện"
 
-                // Lặp qua các chi tiết đơn hàng (OrderDetails) và điền thông tin vào Excel
-                int row = 2;
+                // Thiết lập cột cho chi tiết đơn hàng
+                worksheet.Cell(2, 1).Value = "Tên món";
+                worksheet.Cell(2, 2).Value = "Giá";
+                worksheet.Cell(2, 3).Value = "Số lượng";
+                worksheet.Cell(2, 4).Value = "Tổng tiền";
+
+                int row = 3;  // Dữ liệu bắt đầu từ dòng 3
                 decimal totalOrderAmount = 0;
-                foreach (var detail in order.OrderDetails)
+
+                // Lặp qua các chi tiết đơn hàng (OrderDetails)
+                foreach (var detail in orderDetails) // orderDetails là danh sách OrderDetail đã lấy từ ListView
                 {
-                    worksheet.Cells[row, 1].Value = detail.Food.Name; // Tên món ăn
-                    worksheet.Cells[row, 2].Value = detail.Food.Price; // Giá của món
-                    worksheet.Cells[row, 3].Value = detail.Quantity; // Số lượng
-                    decimal itemTotal = detail.Quantity * detail.SubTotal; // Tổng tiền cho món
-                    worksheet.Cells[row, 4].Value = itemTotal;
+                    worksheet.Cell(row, 1).Value = detail.Food.Name;  // Tên món ăn
+                    worksheet.Cell(row, 2).Value = detail.Food.Price.ToString();  // Giá của món
+                    worksheet.Cell(row, 3).Value = detail.Quantity;  // Số lượng
+                    decimal itemTotal = detail.Quantity * detail.Food.Price;  // Tổng tiền cho món
+                    worksheet.Cell(row, 4).Value = itemTotal.ToString();
 
                     totalOrderAmount += itemTotal;
                     row++;
                 }
 
                 // Điền tổng tiền vào cột Tổng
-                worksheet.Cells[row, 3].Value = "Tổng tiền";
-                worksheet.Cells[row, 4].Value = totalOrderAmount;
+                worksheet.Cell(row, 3).Value = "Tổng tiền";
+                worksheet.Cell(row, 4).Value = totalOrderAmount.ToString();
 
-                // Đặt đường dẫn lưu file Excel vào thư mục OneDrive (hoặc thư mục mong muốn)
-                string directoryPath = @"C:\Users\nguye\OneDrive\Máy tính này\Invoices"; // Thư mục lưu trữ hóa đơn
+                // Căn giữa tất cả các tiêu đề và dữ liệu
+                worksheet.Range(1, 1, 1, 4).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;  // Căn giữa hàng tiêu đề
+                worksheet.Range(2, 1, row, 4).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;  // Căn giữa các dòng dữ liệu
+
+                // Điều chỉnh chiều rộng cột tự động để vừa với nội dung
+                worksheet.Columns().AdjustToContents();
+
+                // Căn giữa toàn bộ bảng dữ liệu trong khung Excel (cả theo chiều ngang và dọc)
+                worksheet.SheetView.Freeze(2, 1);  // Giữ nguyên các tiêu đề
+                worksheet.Cells().Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                worksheet.Cells().Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+                // Đặt chiều cao cho dòng tiêu đề và các dòng dữ liệu
+                worksheet.Rows().Height = 20;  // Tăng chiều cao của các dòng để dễ đọc
+
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);  // Lấy đường dẫn tới Desktop của người dùng
+                string directoryPath = Path.Combine(desktopPath, "Hoa don");  // Kết hợp với tên thư mục "Hoa don"
+
                 if (!Directory.Exists(directoryPath))
                 {
-                    Directory.CreateDirectory(directoryPath); // Tạo thư mục nếu chưa tồn tại
+                    Directory.CreateDirectory(directoryPath);  // Tạo thư mục nếu chưa tồn tại
                 }
 
-                string filePath = Path.Combine(directoryPath, $"HoaDon_{order.Id}_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx"); // Đặt tên file với id đơn hàng và thời gian hiện tại
+                // Đặt tên file và lưu file Excel vào thư mục "Hoa don"
+                string filePath = Path.Combine(directoryPath, $"HoaDon_{tableId}_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx");
 
                 // Lưu file Excel vào ổ đĩa
-                FileInfo fi = new FileInfo(filePath);
-                package.SaveAs(fi);
+                workbook.SaveAs(filePath);
 
                 // Thông báo người dùng
                 MessageBox.Show($"Hóa đơn đã được lưu vào file Excel tại: {filePath}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -121,19 +121,22 @@
             // 
             // button_saveOrderDetail
             // 
+            button_saveOrderDetail.BackColor = Color.Brown;
+            button_saveOrderDetail.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_saveOrderDetail.ForeColor = Color.Black;
             button_saveOrderDetail.Location = new Point(636, 609);
             button_saveOrderDetail.Name = "button_saveOrderDetail";
             button_saveOrderDetail.Size = new Size(515, 92);
             button_saveOrderDetail.TabIndex = 3;
             button_saveOrderDetail.Text = "Order";
-            button_saveOrderDetail.UseVisualStyleBackColor = true;
+            button_saveOrderDetail.UseVisualStyleBackColor = false;
             button_saveOrderDetail.Click += button_saveOrderDetail_Click;
             // 
             // frm_orderDetails_manager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.MistyRose;
             ClientSize = new Size(1163, 713);
             Controls.Add(button_saveOrderDetail);
             Controls.Add(lb_tableNumber);

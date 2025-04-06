@@ -56,7 +56,7 @@
             // 
             // lb_frm_tables_manager_title
             // 
-            lb_frm_tables_manager_title.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb_frm_tables_manager_title.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lb_frm_tables_manager_title.Location = new Point(432, 9);
             lb_frm_tables_manager_title.Name = "lb_frm_tables_manager_title";
             lb_frm_tables_manager_title.Size = new Size(318, 63);
@@ -69,7 +69,7 @@
             groupBox_listTable.Controls.Add(flowLayoutPanel_listTable);
             groupBox_listTable.Location = new Point(12, 75);
             groupBox_listTable.Name = "groupBox_listTable";
-            groupBox_listTable.Size = new Size(767, 626);
+            groupBox_listTable.Size = new Size(738, 626);
             groupBox_listTable.TabIndex = 21;
             groupBox_listTable.TabStop = false;
             groupBox_listTable.Text = "Danh sách bàn ăn :";
@@ -80,7 +80,7 @@
             flowLayoutPanel_listTable.Dock = DockStyle.Fill;
             flowLayoutPanel_listTable.Location = new Point(3, 23);
             flowLayoutPanel_listTable.Name = "flowLayoutPanel_listTable";
-            flowLayoutPanel_listTable.Size = new Size(761, 600);
+            flowLayoutPanel_listTable.Size = new Size(732, 600);
             flowLayoutPanel_listTable.TabIndex = 0;
             // 
             // groupBox_infoTable
@@ -88,9 +88,9 @@
             groupBox_infoTable.Controls.Add(listView_orderDetail);
             groupBox_infoTable.Controls.Add(lb_tableStatus);
             groupBox_infoTable.Controls.Add(lb_tableNumber);
-            groupBox_infoTable.Location = new Point(785, 75);
+            groupBox_infoTable.Location = new Point(753, 75);
             groupBox_infoTable.Name = "groupBox_infoTable";
-            groupBox_infoTable.Size = new Size(366, 379);
+            groupBox_infoTable.Size = new Size(398, 379);
             groupBox_infoTable.TabIndex = 22;
             groupBox_infoTable.TabStop = false;
             groupBox_infoTable.Text = "Thông tin bàn ăn :";
@@ -101,7 +101,7 @@
             listView_orderDetail.Items.AddRange(new ListViewItem[] { listViewItem1 });
             listView_orderDetail.Location = new Point(0, 136);
             listView_orderDetail.Name = "listView_orderDetail";
-            listView_orderDetail.Size = new Size(366, 243);
+            listView_orderDetail.Size = new Size(398, 243);
             listView_orderDetail.TabIndex = 28;
             listView_orderDetail.UseCompatibleStateImageBehavior = false;
             listView_orderDetail.View = View.Details;
@@ -128,7 +128,7 @@
             // lb_tableStatus
             // 
             lb_tableStatus.AutoSize = true;
-            lb_tableStatus.Location = new Point(11, 60);
+            lb_tableStatus.Location = new Point(11, 82);
             lb_tableStatus.Name = "lb_tableStatus";
             lb_tableStatus.Size = new Size(30, 20);
             lb_tableStatus.TabIndex = 27;
@@ -137,7 +137,7 @@
             // lb_tableNumber
             // 
             lb_tableNumber.AutoSize = true;
-            lb_tableNumber.Location = new Point(11, 23);
+            lb_tableNumber.Location = new Point(11, 34);
             lb_tableNumber.Name = "lb_tableNumber";
             lb_tableNumber.Size = new Size(30, 20);
             lb_tableNumber.TabIndex = 26;
@@ -145,12 +145,15 @@
             // 
             // btn_pay
             // 
-            btn_pay.Location = new Point(785, 647);
+            btn_pay.BackColor = Color.Brown;
+            btn_pay.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_pay.ForeColor = Color.Black;
+            btn_pay.Location = new Point(753, 647);
             btn_pay.Name = "btn_pay";
-            btn_pay.Size = new Size(278, 51);
+            btn_pay.Size = new Size(310, 51);
             btn_pay.TabIndex = 23;
             btn_pay.Text = "Thanh toán";
-            btn_pay.UseVisualStyleBackColor = true;
+            btn_pay.UseVisualStyleBackColor = false;
             btn_pay.Click += btn_pay_Click;
             // 
             // btn_print
@@ -168,9 +171,9 @@
             groupBox_optionPays.Controls.Add(radioButton_optionMomo);
             groupBox_optionPays.Controls.Add(radioButton_optionBank);
             groupBox_optionPays.Controls.Add(radioButton_optionCash);
-            groupBox_optionPays.Location = new Point(785, 533);
+            groupBox_optionPays.Location = new Point(753, 533);
             groupBox_optionPays.Name = "groupBox_optionPays";
-            groupBox_optionPays.Size = new Size(367, 93);
+            groupBox_optionPays.Size = new Size(399, 93);
             groupBox_optionPays.TabIndex = 26;
             groupBox_optionPays.TabStop = false;
             groupBox_optionPays.Text = "Phương thức thanh toán";
@@ -226,7 +229,7 @@
             // lb_sum
             // 
             lb_sum.AutoSize = true;
-            lb_sum.Location = new Point(791, 476);
+            lb_sum.Location = new Point(764, 476);
             lb_sum.Name = "lb_sum";
             lb_sum.Size = new Size(30, 20);
             lb_sum.TabIndex = 28;
@@ -236,7 +239,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.MistyRose;
             ClientSize = new Size(1163, 713);
             Controls.Add(lb_sum);
             Controls.Add(label2);

@@ -245,5 +245,6 @@ namespace PresentationLayer
                 frmMain.OpenChildForm(categoryForm);
             }
         }
+
     }
 }
