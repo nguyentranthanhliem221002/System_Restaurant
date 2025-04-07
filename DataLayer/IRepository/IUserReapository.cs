@@ -11,5 +11,6 @@ namespace DataLayer.IRepository
         void DeleteUser(int userId);
         List<User> SearchByUsername(string userName);
         void UpdateUser(User user);
+        IEnumerable<User> GetUsersByRoleId(int roleId);
     }
 }

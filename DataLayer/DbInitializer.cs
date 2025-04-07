@@ -111,24 +111,45 @@ namespace DataLayer
                 {
                     new User
                     {
-                        FullName = "Admin User",
-                        Email = "admin@example.com",
-                        NumberPhone = "0123456789",
+                        FullName = "Nguyễn Trần Thanh Liêm",
+                        Email = "admin@gmail.com",
+                        NumberPhone = "0903049728",
                         DateStart = DateTime.UtcNow,
-                        UserName = "admin",
+                        UserName = "Admin",
                         PasswordHash = BCrypt.Net.BCrypt.HashPassword("0"),
-                        RoleId = adminRole.Id // Gán đúng RoleId
+                        RoleId = adminRole.Id 
                     },
                     new User
                     {
-                        FullName = "Employee User",
-                        Email = "employee@example.com",
-                        NumberPhone = "0987654321",
+                        FullName = "Nguyễn Văn A",
+                        Email = "nguyenvanA@gmail.com",
+                        NumberPhone = "0909113113",
                         DateStart = DateTime.UtcNow,
-                        UserName = "employee",
+                        UserName = "Employee",
+                        PasswordHash = BCrypt.Net.BCrypt.HashPassword("123"),
+                        RoleId = staffRole.Id
+                    },
+                        new User
+                    {
+                        FullName = "Trần Nguyễn Thanh B",
+                        Email = "trannguyenthanhB@gmail.com",
+                        NumberPhone = "0903789789",
+                        DateStart = DateTime.UtcNow,
+                        UserName = "Employee",
+                        PasswordHash = BCrypt.Net.BCrypt.HashPassword("123"),
+                        RoleId = staffRole.Id
+                    },
+                            new User
+                    {
+                        FullName = "Châu Thành C",
+                        Email = "chauthanhC@gmail.com",
+                        NumberPhone = "0905528583",
+                        DateStart = DateTime.UtcNow,
+                        UserName = "Employee",
                         PasswordHash = BCrypt.Net.BCrypt.HashPassword("123"),
                         RoleId = staffRole.Id
                     }
+
                 };
 
                 context.Users.AddRange(users);

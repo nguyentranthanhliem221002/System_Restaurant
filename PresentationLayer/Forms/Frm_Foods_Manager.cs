@@ -218,22 +218,31 @@ namespace PresentationLayer
 
         private void btn_foodSearch_Click(object sender, EventArgs e)
         {
-            var name = txt_foodSearch.Text.Trim();
-            if (string.IsNullOrEmpty(name))
+            try
             {
-                ShowMessage("Vui lòng nhập tên món ăn để tìm kiếm!", null, MessageBoxIcon.Warning);
-                return;
-            }
+                string name = txt_foodSearch.Text.Trim();
 
-            var results = _foodService.SearchFoodsByName(name);
-            if (!results.Any())
+                //if (string.IsNullOrEmpty(name))
+                //{
+                //    MessageBox.Show("Vui lòng nhập tên món ăn để tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
+
+                var results = _foodService.SearchFoodsByName(name);
+
+                if (!results.Any())
+                {
+                    MessageBox.Show("Không tìm thấy món ăn nào phù hợp!", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadFoods(); 
+                    return;
+                }
+
+                dgv_listFood.DataSource = results;
+            }
+            catch (Exception ex)
             {
-                ShowMessage("Không tìm thấy món ăn nào phù hợp!", null, MessageBoxIcon.Information);
-                LoadFoods();
-                return;
+                MessageBox.Show($"Lỗi khi tìm kiếm món ăn: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            dgv_listFood.DataSource = results;
         }
 
         private void btn_frm_categories_manager_Click(object sender, EventArgs e)

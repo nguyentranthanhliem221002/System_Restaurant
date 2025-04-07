@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ListViewItem listViewItem1 = new ListViewItem("");
+            ListViewItem listViewItem3 = new ListViewItem("");
             lb_frm_tables_manager_title = new Label();
             groupBox_listTable = new GroupBox();
             flowLayoutPanel_listTable = new FlowLayoutPanel();
@@ -49,9 +49,16 @@
             label1 = new Label();
             label2 = new Label();
             lb_sum = new Label();
+            groupBox_tableSwap = new GroupBox();
+            btn_tableSwap = new Button();
+            lb_table_1 = new Label();
+            txt_table_1 = new TextBox();
+            txt_table_2 = new TextBox();
+            lb_table_2 = new Label();
             groupBox_listTable.SuspendLayout();
             groupBox_infoTable.SuspendLayout();
             groupBox_optionPays.SuspendLayout();
+            groupBox_tableSwap.SuspendLayout();
             SuspendLayout();
             // 
             // lb_frm_tables_manager_title
@@ -67,9 +74,9 @@
             // groupBox_listTable
             // 
             groupBox_listTable.Controls.Add(flowLayoutPanel_listTable);
-            groupBox_listTable.Location = new Point(12, 75);
+            groupBox_listTable.Location = new Point(12, 68);
             groupBox_listTable.Name = "groupBox_listTable";
-            groupBox_listTable.Size = new Size(738, 626);
+            groupBox_listTable.Size = new Size(662, 633);
             groupBox_listTable.TabIndex = 21;
             groupBox_listTable.TabStop = false;
             groupBox_listTable.Text = "Danh sách bàn ăn :";
@@ -80,7 +87,7 @@
             flowLayoutPanel_listTable.Dock = DockStyle.Fill;
             flowLayoutPanel_listTable.Location = new Point(3, 23);
             flowLayoutPanel_listTable.Name = "flowLayoutPanel_listTable";
-            flowLayoutPanel_listTable.Size = new Size(732, 600);
+            flowLayoutPanel_listTable.Size = new Size(656, 607);
             flowLayoutPanel_listTable.TabIndex = 0;
             // 
             // groupBox_infoTable
@@ -88,9 +95,9 @@
             groupBox_infoTable.Controls.Add(listView_orderDetail);
             groupBox_infoTable.Controls.Add(lb_tableStatus);
             groupBox_infoTable.Controls.Add(lb_tableNumber);
-            groupBox_infoTable.Location = new Point(753, 75);
+            groupBox_infoTable.Location = new Point(680, 199);
             groupBox_infoTable.Name = "groupBox_infoTable";
-            groupBox_infoTable.Size = new Size(398, 379);
+            groupBox_infoTable.Size = new Size(474, 323);
             groupBox_infoTable.TabIndex = 22;
             groupBox_infoTable.TabStop = false;
             groupBox_infoTable.Text = "Thông tin bàn ăn :";
@@ -98,10 +105,10 @@
             // listView_orderDetail
             // 
             listView_orderDetail.Columns.AddRange(new ColumnHeader[] { Name, Price, Quantity, SubTotal });
-            listView_orderDetail.Items.AddRange(new ListViewItem[] { listViewItem1 });
-            listView_orderDetail.Location = new Point(0, 136);
+            listView_orderDetail.Items.AddRange(new ListViewItem[] { listViewItem3 });
+            listView_orderDetail.Location = new Point(0, 86);
             listView_orderDetail.Name = "listView_orderDetail";
-            listView_orderDetail.Size = new Size(398, 243);
+            listView_orderDetail.Size = new Size(498, 231);
             listView_orderDetail.TabIndex = 28;
             listView_orderDetail.UseCompatibleStateImageBehavior = false;
             listView_orderDetail.View = View.Details;
@@ -119,6 +126,7 @@
             // Quantity
             // 
             Quantity.Text = "Số lượng";
+            Quantity.Width = 100;
             // 
             // SubTotal
             // 
@@ -128,7 +136,7 @@
             // lb_tableStatus
             // 
             lb_tableStatus.AutoSize = true;
-            lb_tableStatus.Location = new Point(11, 82);
+            lb_tableStatus.Location = new Point(11, 54);
             lb_tableStatus.Name = "lb_tableStatus";
             lb_tableStatus.Size = new Size(30, 20);
             lb_tableStatus.TabIndex = 27;
@@ -137,7 +145,7 @@
             // lb_tableNumber
             // 
             lb_tableNumber.AutoSize = true;
-            lb_tableNumber.Location = new Point(11, 34);
+            lb_tableNumber.Location = new Point(11, 23);
             lb_tableNumber.Name = "lb_tableNumber";
             lb_tableNumber.Size = new Size(30, 20);
             lb_tableNumber.TabIndex = 26;
@@ -148,9 +156,9 @@
             btn_pay.BackColor = Color.Brown;
             btn_pay.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_pay.ForeColor = Color.Black;
-            btn_pay.Location = new Point(753, 647);
+            btn_pay.Location = new Point(680, 647);
             btn_pay.Name = "btn_pay";
-            btn_pay.Size = new Size(310, 51);
+            btn_pay.Size = new Size(345, 51);
             btn_pay.TabIndex = 23;
             btn_pay.Text = "Thanh toán";
             btn_pay.UseVisualStyleBackColor = false;
@@ -158,9 +166,9 @@
             // 
             // btn_print
             // 
-            btn_print.Location = new Point(1069, 647);
+            btn_print.Location = new Point(1031, 647);
             btn_print.Name = "btn_print";
-            btn_print.Size = new Size(82, 51);
+            btn_print.Size = new Size(120, 51);
             btn_print.TabIndex = 24;
             btn_print.Text = "In hóa đơn";
             btn_print.UseVisualStyleBackColor = true;
@@ -171,9 +179,9 @@
             groupBox_optionPays.Controls.Add(radioButton_optionMomo);
             groupBox_optionPays.Controls.Add(radioButton_optionBank);
             groupBox_optionPays.Controls.Add(radioButton_optionCash);
-            groupBox_optionPays.Location = new Point(753, 533);
+            groupBox_optionPays.Location = new Point(680, 548);
             groupBox_optionPays.Name = "groupBox_optionPays";
-            groupBox_optionPays.Size = new Size(399, 93);
+            groupBox_optionPays.Size = new Size(475, 93);
             groupBox_optionPays.TabIndex = 26;
             groupBox_optionPays.TabStop = false;
             groupBox_optionPays.Text = "Phương thức thanh toán";
@@ -181,7 +189,7 @@
             // radioButton_optionMomo
             // 
             radioButton_optionMomo.AutoSize = true;
-            radioButton_optionMomo.Location = new Point(270, 42);
+            radioButton_optionMomo.Location = new Point(377, 42);
             radioButton_optionMomo.Name = "radioButton_optionMomo";
             radioButton_optionMomo.Size = new Size(74, 24);
             radioButton_optionMomo.TabIndex = 2;
@@ -193,7 +201,7 @@
             // radioButton_optionBank
             // 
             radioButton_optionBank.AutoSize = true;
-            radioButton_optionBank.Location = new Point(145, 42);
+            radioButton_optionBank.Location = new Point(193, 42);
             radioButton_optionBank.Name = "radioButton_optionBank";
             radioButton_optionBank.Size = new Size(103, 24);
             radioButton_optionBank.TabIndex = 1;
@@ -229,11 +237,70 @@
             // lb_sum
             // 
             lb_sum.AutoSize = true;
-            lb_sum.Location = new Point(764, 476);
+            lb_sum.Location = new Point(691, 525);
             lb_sum.Name = "lb_sum";
             lb_sum.Size = new Size(30, 20);
             lb_sum.TabIndex = 28;
             lb_sum.Text = "???";
+            lb_sum.Click += lb_sum_Click;
+            // 
+            // groupBox_tableSwap
+            // 
+            groupBox_tableSwap.Controls.Add(btn_tableSwap);
+            groupBox_tableSwap.Controls.Add(lb_table_1);
+            groupBox_tableSwap.Controls.Add(txt_table_1);
+            groupBox_tableSwap.Controls.Add(txt_table_2);
+            groupBox_tableSwap.Controls.Add(lb_table_2);
+            groupBox_tableSwap.Location = new Point(680, 68);
+            groupBox_tableSwap.Name = "groupBox_tableSwap";
+            groupBox_tableSwap.Size = new Size(474, 125);
+            groupBox_tableSwap.TabIndex = 34;
+            groupBox_tableSwap.TabStop = false;
+            groupBox_tableSwap.Text = "Chuyển bàn : ";
+            // 
+            // btn_tableSwap
+            // 
+            btn_tableSwap.Location = new Point(325, 42);
+            btn_tableSwap.Name = "btn_tableSwap";
+            btn_tableSwap.Size = new Size(126, 62);
+            btn_tableSwap.TabIndex = 35;
+            btn_tableSwap.Text = "Chuyển";
+            btn_tableSwap.UseVisualStyleBackColor = true;
+            btn_tableSwap.Click += btn_tableSwap_Click;
+            // 
+            // lb_table_1
+            // 
+            lb_table_1.AutoSize = true;
+            lb_table_1.Location = new Point(20, 42);
+            lb_table_1.Name = "lb_table_1";
+            lb_table_1.Size = new Size(69, 20);
+            lb_table_1.TabIndex = 38;
+            lb_table_1.Text = "Bàn ăn 1:";
+            // 
+            // txt_table_1
+            // 
+            txt_table_1.Location = new Point(95, 42);
+            txt_table_1.Multiline = true;
+            txt_table_1.Name = "txt_table_1";
+            txt_table_1.Size = new Size(211, 20);
+            txt_table_1.TabIndex = 37;
+            // 
+            // txt_table_2
+            // 
+            txt_table_2.Location = new Point(95, 84);
+            txt_table_2.Multiline = true;
+            txt_table_2.Name = "txt_table_2";
+            txt_table_2.Size = new Size(211, 20);
+            txt_table_2.TabIndex = 35;
+            // 
+            // lb_table_2
+            // 
+            lb_table_2.AutoSize = true;
+            lb_table_2.Location = new Point(20, 84);
+            lb_table_2.Name = "lb_table_2";
+            lb_table_2.Size = new Size(69, 20);
+            lb_table_2.TabIndex = 36;
+            lb_table_2.Text = "Bàn ăn 2:";
             // 
             // frm_tables_manager
             // 
@@ -241,6 +308,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
             ClientSize = new Size(1163, 713);
+            Controls.Add(groupBox_tableSwap);
             Controls.Add(lb_sum);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -259,6 +327,8 @@
             groupBox_infoTable.PerformLayout();
             groupBox_optionPays.ResumeLayout(false);
             groupBox_optionPays.PerformLayout();
+            groupBox_tableSwap.ResumeLayout(false);
+            groupBox_tableSwap.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -286,5 +356,11 @@
         private ColumnHeader Price;
         private ColumnHeader Quantity;
         private ColumnHeader SubTotal;
+        private GroupBox groupBox_tableSwap;
+        private Label lb_table_1;
+        private TextBox txt_table_1;
+        private TextBox txt_table_2;
+        private Label lb_table_2;
+        private Button btn_tableSwap;
     }
 }

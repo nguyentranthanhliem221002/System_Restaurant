@@ -53,5 +53,9 @@ namespace BusinessLayer.Service
         {
             _userRepository.UpdateUser(user);
         }
+        public IEnumerable<User> GetUsersByRoleId(int roleId)
+        {
+            return _userRepository.GetUsersByRoleId(roleId);
+        }
     }
 }

@@ -56,14 +56,39 @@ public class UserRepository : IUserRepository
     // Cập nhật thông tin người dùng
     public void UpdateUser(User user)
     {
+        // Tìm người dùng trong cơ sở dữ liệu theo ID
         var existingUser = _context.Users.Find(user.Id);
         if (existingUser != null)
         {
-            existingUser.UserName = user.UserName;
-            existingUser.PasswordHash = user.PasswordHash; // Nếu có thay đổi mật khẩu
-            // Thêm các trường khác cần cập nhật ở đây
+            // Cập nhật các trường thông tin người dùng
+            existingUser.FullName = user.FullName; // Cập nhật họ tên
+            existingUser.NumberPhone = user.NumberPhone; // Cập nhật số điện thoại
+            existingUser.Email = user.Email; // Cập nhật email
+            existingUser.DateStart = user.DateStart; // Cập nhật ngày bắt đầu làm việc
+            existingUser.UserName = user.UserName; // Cập nhật tên đăng nhập
 
+            // Nếu có thay đổi mật khẩu, bạn cần đảm bảo mã hóa lại
+            if (!string.IsNullOrEmpty(user.PasswordHash))
+            {
+                existingUser.PasswordHash = user.PasswordHash;
+            }
+
+            // Cập nhật vai trò (nếu cần thiết)
+            existingUser.RoleId = user.RoleId;
+
+            // Lưu thay đổi vào cơ sở dữ liệu
             _context.SaveChanges();
         }
+        else
+        {
+            // Xử lý khi không tìm thấy người dùng
+            throw new ArgumentException($"User with ID {user.Id} not found.");
+        }
     }
+
+    public IEnumerable<User> GetUsersByRoleId(int roleId)
+    {
+        return _context.Users.Where(u => u.RoleId == roleId).ToList();
+    }
+
 }

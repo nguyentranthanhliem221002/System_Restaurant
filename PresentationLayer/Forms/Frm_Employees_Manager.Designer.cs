@@ -28,139 +28,143 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgv_listEmployee = new DataGridView();
-            btn_categorySearch = new Button();
-            txt_employeeSearch = new TextBox();
-            lb_employeeSearch = new Label();
-            btn_employeeUpdate = new Button();
-            btn_employeeFix = new Button();
-            btn_employeeDelete = new Button();
-            btn_employeeAdd = new Button();
+            dgv_lisUser = new DataGridView();
+            btn_userSearch = new Button();
+            txt_userSearch = new TextBox();
+            lb_userSearch = new Label();
+            btn_userUpdate = new Button();
+            btn_userFix = new Button();
+            btn_userDelete = new Button();
+            btn_userAdd = new Button();
             groupBox_listEmployee = new GroupBox();
-            txt_employeeName = new TextBox();
-            lb_employeeName = new Label();
             lb_frm_employees_manager_title = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgv_listEmployee).BeginInit();
+            radioButton_optionEmployee = new RadioButton();
+            radioButton_optionAdmin = new RadioButton();
+            groupBox1 = new GroupBox();
+            groupBox_infoUser = new GroupBox();
+            dateTimePicker_userDateStart = new DateTimePicker();
+            txt_userFullName = new TextBox();
+            lb_userDateStart = new Label();
+            lb_userFullName = new Label();
+            txt_userEmail = new TextBox();
+            lb_userNumberPhone = new Label();
+            lb_userEmail = new Label();
+            txt_userNumberPhone = new TextBox();
+            groupBox_user = new GroupBox();
+            lb_userPasswordHash = new Label();
+            txt_userPasswordHash = new TextBox();
+            lb_userUserName = new Label();
+            txt_userUserName = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgv_lisUser).BeginInit();
             groupBox_listEmployee.SuspendLayout();
+            groupBox1.SuspendLayout();
+            groupBox_infoUser.SuspendLayout();
+            groupBox_user.SuspendLayout();
             SuspendLayout();
             // 
-            // dgv_listEmployee
+            // dgv_lisUser
             // 
-            dgv_listEmployee.AllowUserToAddRows = false;
-            dgv_listEmployee.AllowUserToDeleteRows = false;
-            dgv_listEmployee.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_listEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_listEmployee.Dock = DockStyle.Fill;
-            dgv_listEmployee.Location = new Point(3, 23);
-            dgv_listEmployee.Name = "dgv_listEmployee";
-            dgv_listEmployee.ReadOnly = true;
-            dgv_listEmployee.RowHeadersWidth = 51;
-            dgv_listEmployee.Size = new Size(1097, 433);
-            dgv_listEmployee.TabIndex = 1;
+            dgv_lisUser.AllowUserToAddRows = false;
+            dgv_lisUser.AllowUserToDeleteRows = false;
+            dgv_lisUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_lisUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_lisUser.Dock = DockStyle.Fill;
+            dgv_lisUser.Location = new Point(3, 23);
+            dgv_lisUser.Name = "dgv_lisUser";
+            dgv_lisUser.ReadOnly = true;
+            dgv_lisUser.RowHeadersWidth = 51;
+            dgv_lisUser.Size = new Size(1097, 315);
+            dgv_lisUser.TabIndex = 1;
             // 
-            // btn_categorySearch
+            // btn_userSearch
             // 
-            btn_categorySearch.BackColor = Color.Aqua;
-            btn_categorySearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            btn_categorySearch.Location = new Point(833, 110);
-            btn_categorySearch.Name = "btn_categorySearch";
-            btn_categorySearch.Size = new Size(303, 43);
-            btn_categorySearch.TabIndex = 54;
-            btn_categorySearch.Text = "Search";
-            btn_categorySearch.UseVisualStyleBackColor = false;
+            btn_userSearch.BackColor = Color.Aqua;
+            btn_userSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            btn_userSearch.Location = new Point(927, 152);
+            btn_userSearch.Name = "btn_userSearch";
+            btn_userSearch.Size = new Size(206, 43);
+            btn_userSearch.TabIndex = 54;
+            btn_userSearch.Text = "Search";
+            btn_userSearch.UseVisualStyleBackColor = false;
+            btn_userSearch.Click += btn_userSearch_Click;
             // 
-            // txt_employeeSearch
+            // txt_userSearch
             // 
-            txt_employeeSearch.Location = new Point(833, 77);
-            txt_employeeSearch.Name = "txt_employeeSearch";
-            txt_employeeSearch.Size = new Size(303, 27);
-            txt_employeeSearch.TabIndex = 53;
+            txt_userSearch.Location = new Point(927, 119);
+            txt_userSearch.Name = "txt_userSearch";
+            txt_userSearch.Size = new Size(206, 27);
+            txt_userSearch.TabIndex = 53;
             // 
-            // lb_employeeSearch
+            // lb_userSearch
             // 
-            lb_employeeSearch.AutoSize = true;
-            lb_employeeSearch.BackColor = Color.Transparent;
-            lb_employeeSearch.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lb_employeeSearch.Location = new Point(753, 84);
-            lb_employeeSearch.Name = "lb_employeeSearch";
-            lb_employeeSearch.Size = new Size(74, 20);
-            lb_employeeSearch.TabIndex = 52;
-            lb_employeeSearch.Text = "Tìm loại : ";
-            lb_employeeSearch.TextAlign = ContentAlignment.MiddleLeft;
+            lb_userSearch.AutoSize = true;
+            lb_userSearch.BackColor = Color.Transparent;
+            lb_userSearch.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb_userSearch.Location = new Point(927, 80);
+            lb_userSearch.Name = "lb_userSearch";
+            lb_userSearch.Size = new Size(74, 20);
+            lb_userSearch.TabIndex = 52;
+            lb_userSearch.Text = "Tìm loại : ";
+            lb_userSearch.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btn_employeeUpdate
+            // btn_userUpdate
             // 
-            btn_employeeUpdate.BackColor = Color.Coral;
-            btn_employeeUpdate.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            btn_employeeUpdate.Location = new Point(878, 641);
-            btn_employeeUpdate.Name = "btn_employeeUpdate";
-            btn_employeeUpdate.Size = new Size(258, 60);
-            btn_employeeUpdate.TabIndex = 51;
-            btn_employeeUpdate.Text = "Cập nhật";
-            btn_employeeUpdate.UseVisualStyleBackColor = false;
+            btn_userUpdate.BackColor = Color.Coral;
+            btn_userUpdate.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            btn_userUpdate.Location = new Point(878, 641);
+            btn_userUpdate.Name = "btn_userUpdate";
+            btn_userUpdate.Size = new Size(258, 60);
+            btn_userUpdate.TabIndex = 51;
+            btn_userUpdate.Text = "Cập nhật";
+            btn_userUpdate.UseVisualStyleBackColor = false;
+            btn_userUpdate.Click += btn_userUpdate_Click;
             // 
-            // btn_employeeFix
+            // btn_userFix
             // 
-            btn_employeeFix.BackColor = Color.Silver;
-            btn_employeeFix.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            btn_employeeFix.ForeColor = SystemColors.ControlText;
-            btn_employeeFix.Location = new Point(599, 641);
-            btn_employeeFix.Name = "btn_employeeFix";
-            btn_employeeFix.Size = new Size(258, 60);
-            btn_employeeFix.TabIndex = 50;
-            btn_employeeFix.Text = "Sửa";
-            btn_employeeFix.UseVisualStyleBackColor = false;
+            btn_userFix.BackColor = Color.Silver;
+            btn_userFix.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            btn_userFix.ForeColor = SystemColors.ControlText;
+            btn_userFix.Location = new Point(599, 641);
+            btn_userFix.Name = "btn_userFix";
+            btn_userFix.Size = new Size(258, 60);
+            btn_userFix.TabIndex = 50;
+            btn_userFix.Text = "Sửa";
+            btn_userFix.UseVisualStyleBackColor = false;
+            btn_userFix.Click += btn_userFix_Click;
             // 
-            // btn_employeeDelete
+            // btn_userDelete
             // 
-            btn_employeeDelete.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            btn_employeeDelete.Location = new Point(317, 641);
-            btn_employeeDelete.Name = "btn_employeeDelete";
-            btn_employeeDelete.Size = new Size(258, 60);
-            btn_employeeDelete.TabIndex = 49;
-            btn_employeeDelete.Text = "Xóa";
-            btn_employeeDelete.UseVisualStyleBackColor = true;
+            btn_userDelete.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            btn_userDelete.Location = new Point(317, 641);
+            btn_userDelete.Name = "btn_userDelete";
+            btn_userDelete.Size = new Size(258, 60);
+            btn_userDelete.TabIndex = 49;
+            btn_userDelete.Text = "Xóa";
+            btn_userDelete.UseVisualStyleBackColor = true;
+            btn_userDelete.Click += btn_userDelete_Click;
             // 
-            // btn_employeeAdd
+            // btn_userAdd
             // 
-            btn_employeeAdd.BackColor = Color.Chartreuse;
-            btn_employeeAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
-            btn_employeeAdd.ForeColor = Color.Black;
-            btn_employeeAdd.Location = new Point(36, 641);
-            btn_employeeAdd.Name = "btn_employeeAdd";
-            btn_employeeAdd.Size = new Size(258, 60);
-            btn_employeeAdd.TabIndex = 48;
-            btn_employeeAdd.Text = "Thêm";
-            btn_employeeAdd.UseVisualStyleBackColor = false;
+            btn_userAdd.BackColor = Color.Chartreuse;
+            btn_userAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            btn_userAdd.ForeColor = Color.Black;
+            btn_userAdd.Location = new Point(36, 641);
+            btn_userAdd.Name = "btn_userAdd";
+            btn_userAdd.Size = new Size(258, 60);
+            btn_userAdd.TabIndex = 48;
+            btn_userAdd.Text = "Thêm";
+            btn_userAdd.UseVisualStyleBackColor = false;
+            btn_userAdd.Click += btn_userAdd_Click;
             // 
             // groupBox_listEmployee
             // 
-            groupBox_listEmployee.Controls.Add(dgv_listEmployee);
-            groupBox_listEmployee.Location = new Point(33, 176);
+            groupBox_listEmployee.Controls.Add(dgv_lisUser);
+            groupBox_listEmployee.Location = new Point(33, 294);
             groupBox_listEmployee.Name = "groupBox_listEmployee";
-            groupBox_listEmployee.Size = new Size(1103, 459);
+            groupBox_listEmployee.Size = new Size(1103, 341);
             groupBox_listEmployee.TabIndex = 47;
             groupBox_listEmployee.TabStop = false;
             groupBox_listEmployee.Text = "Danh nhân viên  :";
-            // 
-            // txt_employeeName
-            // 
-            txt_employeeName.Location = new Point(136, 73);
-            txt_employeeName.Name = "txt_employeeName";
-            txt_employeeName.Size = new Size(266, 27);
-            txt_employeeName.TabIndex = 46;
-            // 
-            // lb_employeeName
-            // 
-            lb_employeeName.AutoSize = true;
-            lb_employeeName.BackColor = Color.Transparent;
-            lb_employeeName.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lb_employeeName.Location = new Point(33, 80);
-            lb_employeeName.Name = "lb_employeeName";
-            lb_employeeName.Size = new Size(72, 20);
-            lb_employeeName.TabIndex = 45;
-            lb_employeeName.Text = "Tên loại : ";
-            lb_employeeName.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lb_frm_employees_manager_title
             // 
@@ -172,47 +176,245 @@
             lb_frm_employees_manager_title.Text = "Quản lý nhân viên";
             lb_frm_employees_manager_title.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // radioButton_optionEmployee
+            // 
+            radioButton_optionEmployee.AutoSize = true;
+            radioButton_optionEmployee.Checked = true;
+            radioButton_optionEmployee.Location = new Point(9, 134);
+            radioButton_optionEmployee.Name = "radioButton_optionEmployee";
+            radioButton_optionEmployee.Size = new Size(96, 24);
+            radioButton_optionEmployee.TabIndex = 61;
+            radioButton_optionEmployee.TabStop = true;
+            radioButton_optionEmployee.Text = "Nhân viên";
+            radioButton_optionEmployee.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_optionAdmin
+            // 
+            radioButton_optionAdmin.AutoSize = true;
+            radioButton_optionAdmin.Location = new Point(9, 54);
+            radioButton_optionAdmin.Name = "radioButton_optionAdmin";
+            radioButton_optionAdmin.Size = new Size(83, 24);
+            radioButton_optionAdmin.TabIndex = 62;
+            radioButton_optionAdmin.Text = "Quản trị";
+            radioButton_optionAdmin.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(radioButton_optionEmployee);
+            groupBox1.Controls.Add(radioButton_optionAdmin);
+            groupBox1.Location = new Point(775, 73);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(146, 215);
+            groupBox1.TabIndex = 64;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Quyền: ";
+            // 
+            // groupBox_infoUser
+            // 
+            groupBox_infoUser.Controls.Add(dateTimePicker_userDateStart);
+            groupBox_infoUser.Controls.Add(txt_userFullName);
+            groupBox_infoUser.Controls.Add(lb_userDateStart);
+            groupBox_infoUser.Controls.Add(lb_userFullName);
+            groupBox_infoUser.Controls.Add(txt_userEmail);
+            groupBox_infoUser.Controls.Add(lb_userNumberPhone);
+            groupBox_infoUser.Controls.Add(lb_userEmail);
+            groupBox_infoUser.Controls.Add(txt_userNumberPhone);
+            groupBox_infoUser.Location = new Point(33, 73);
+            groupBox_infoUser.Name = "groupBox_infoUser";
+            groupBox_infoUser.Size = new Size(410, 215);
+            groupBox_infoUser.TabIndex = 65;
+            groupBox_infoUser.TabStop = false;
+            groupBox_infoUser.Text = "Thông tin user: ";
+            // 
+            // dateTimePicker_userDateStart
+            // 
+            dateTimePicker_userDateStart.Location = new Point(130, 179);
+            dateTimePicker_userDateStart.Name = "dateTimePicker_userDateStart";
+            dateTimePicker_userDateStart.Size = new Size(260, 27);
+            dateTimePicker_userDateStart.TabIndex = 73;
+            // 
+            // txt_userFullName
+            // 
+            txt_userFullName.Location = new Point(130, 26);
+            txt_userFullName.Name = "txt_userFullName";
+            txt_userFullName.Size = new Size(260, 27);
+            txt_userFullName.TabIndex = 67;
+            // 
+            // lb_userDateStart
+            // 
+            lb_userDateStart.AutoSize = true;
+            lb_userDateStart.BackColor = Color.Transparent;
+            lb_userDateStart.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb_userDateStart.Location = new Point(18, 186);
+            lb_userDateStart.Name = "lb_userDateStart";
+            lb_userDateStart.Size = new Size(106, 20);
+            lb_userDateStart.TabIndex = 72;
+            lb_userDateStart.Text = "Ngày bắt đầu: ";
+            lb_userDateStart.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lb_userFullName
+            // 
+            lb_userFullName.AutoSize = true;
+            lb_userFullName.BackColor = Color.Transparent;
+            lb_userFullName.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb_userFullName.Location = new Point(18, 33);
+            lb_userFullName.Name = "lb_userFullName";
+            lb_userFullName.Size = new Size(106, 20);
+            lb_userFullName.TabIndex = 66;
+            lb_userFullName.Text = "Tên nhân viên: ";
+            lb_userFullName.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txt_userEmail
+            // 
+            txt_userEmail.Location = new Point(130, 136);
+            txt_userEmail.Name = "txt_userEmail";
+            txt_userEmail.Size = new Size(260, 27);
+            txt_userEmail.TabIndex = 71;
+            // 
+            // lb_userNumberPhone
+            // 
+            lb_userNumberPhone.AutoSize = true;
+            lb_userNumberPhone.BackColor = Color.Transparent;
+            lb_userNumberPhone.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb_userNumberPhone.Location = new Point(18, 86);
+            lb_userNumberPhone.Name = "lb_userNumberPhone";
+            lb_userNumberPhone.Size = new Size(104, 20);
+            lb_userNumberPhone.TabIndex = 68;
+            lb_userNumberPhone.Text = "Số điện thoại: ";
+            lb_userNumberPhone.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lb_userEmail
+            // 
+            lb_userEmail.AutoSize = true;
+            lb_userEmail.BackColor = Color.Transparent;
+            lb_userEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb_userEmail.Location = new Point(18, 143);
+            lb_userEmail.Name = "lb_userEmail";
+            lb_userEmail.Size = new Size(53, 20);
+            lb_userEmail.TabIndex = 70;
+            lb_userEmail.Text = "Email: ";
+            lb_userEmail.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txt_userNumberPhone
+            // 
+            txt_userNumberPhone.Location = new Point(130, 79);
+            txt_userNumberPhone.Name = "txt_userNumberPhone";
+            txt_userNumberPhone.Size = new Size(260, 27);
+            txt_userNumberPhone.TabIndex = 69;
+            // 
+            // groupBox_user
+            // 
+            groupBox_user.Controls.Add(lb_userPasswordHash);
+            groupBox_user.Controls.Add(txt_userPasswordHash);
+            groupBox_user.Controls.Add(lb_userUserName);
+            groupBox_user.Controls.Add(txt_userUserName);
+            groupBox_user.Location = new Point(449, 80);
+            groupBox_user.Name = "groupBox_user";
+            groupBox_user.Size = new Size(320, 210);
+            groupBox_user.TabIndex = 66;
+            groupBox_user.TabStop = false;
+            groupBox_user.Text = "Tài khoản: ";
+            // 
+            // lb_userPasswordHash
+            // 
+            lb_userPasswordHash.BackColor = Color.Transparent;
+            lb_userPasswordHash.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb_userPasswordHash.Location = new Point(6, 95);
+            lb_userPasswordHash.Name = "lb_userPasswordHash";
+            lb_userPasswordHash.Size = new Size(108, 20);
+            lb_userPasswordHash.TabIndex = 75;
+            lb_userPasswordHash.Text = "Mật khẩu: ";
+            lb_userPasswordHash.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txt_userPasswordHash
+            // 
+            txt_userPasswordHash.Location = new Point(132, 88);
+            txt_userPasswordHash.Name = "txt_userPasswordHash";
+            txt_userPasswordHash.PasswordChar = '*';
+            txt_userPasswordHash.Size = new Size(182, 27);
+            txt_userPasswordHash.TabIndex = 76;
+            // 
+            // lb_userUserName
+            // 
+            lb_userUserName.BackColor = Color.Transparent;
+            lb_userUserName.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lb_userUserName.Location = new Point(6, 42);
+            lb_userUserName.Name = "lb_userUserName";
+            lb_userUserName.Size = new Size(120, 20);
+            lb_userUserName.TabIndex = 74;
+            lb_userUserName.Text = "Tên đăng nhập: ";
+            lb_userUserName.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txt_userUserName
+            // 
+            txt_userUserName.Location = new Point(132, 39);
+            txt_userUserName.Name = "txt_userUserName";
+            txt_userUserName.Size = new Size(182, 27);
+            txt_userUserName.TabIndex = 74;
+            // 
             // frm_employees_manager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
             ClientSize = new Size(1163, 713);
-            Controls.Add(btn_categorySearch);
-            Controls.Add(txt_employeeSearch);
-            Controls.Add(lb_employeeSearch);
-            Controls.Add(btn_employeeUpdate);
-            Controls.Add(btn_employeeFix);
-            Controls.Add(btn_employeeDelete);
-            Controls.Add(btn_employeeAdd);
+            Controls.Add(groupBox_user);
+            Controls.Add(groupBox_infoUser);
+            Controls.Add(groupBox1);
+            Controls.Add(btn_userSearch);
+            Controls.Add(txt_userSearch);
+            Controls.Add(lb_userSearch);
+            Controls.Add(btn_userUpdate);
+            Controls.Add(btn_userFix);
+            Controls.Add(btn_userDelete);
+            Controls.Add(btn_userAdd);
             Controls.Add(groupBox_listEmployee);
-            Controls.Add(txt_employeeName);
-            Controls.Add(lb_employeeName);
             Controls.Add(lb_frm_employees_manager_title);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frm_employees_manager";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản lý nhân viên";
             Load += frm_employees_manager_Load;
-            ((System.ComponentModel.ISupportInitialize)dgv_listEmployee).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_lisUser).EndInit();
             groupBox_listEmployee.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox_infoUser.ResumeLayout(false);
+            groupBox_infoUser.PerformLayout();
+            groupBox_user.ResumeLayout(false);
+            groupBox_user.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dgv_listEmployee;
-        private Button btn_categorySearch;
-        private TextBox txt_employeeSearch;
-        private Label lb_employeeSearch;
-        private Button btn_employeeUpdate;
-        private Button btn_employeeFix;
-        private Button btn_employeeDelete;
-        private Button btn_employeeAdd;
+        private DataGridView dgv_lisUser;
+        private Button btn_userSearch;
+        private TextBox txt_userSearch;
+        private Label lb_userSearch;
+        private Button btn_userUpdate;
+        private Button btn_userFix;
+        private Button btn_userDelete;
+        private Button btn_userAdd;
         private GroupBox groupBox_listEmployee;
-        private TextBox txt_employeeName;
-        private Label lb_employeeName;
         private Label lb_frm_employees_manager_title;
+        private RadioButton radioButton_optionEmployee;
+        private RadioButton radioButton_optionAdmin;
+        private GroupBox groupBox1;
+        private GroupBox groupBox_infoUser;
+        private DateTimePicker dateTimePicker_userDateStart;
+        private TextBox txt_userFullName;
+        private Label lb_userDateStart;
+        private Label lb_userFullName;
+        private TextBox txt_userEmail;
+        private Label lb_userNumberPhone;
+        private Label lb_userEmail;
+        private TextBox txt_userNumberPhone;
+        private GroupBox groupBox_user;
+        private Label lb_userPasswordHash;
+        private TextBox txt_userPasswordHash;
+        private Label lb_userUserName;
+        private TextBox txt_userUserName;
     }
 }

@@ -103,11 +103,11 @@ namespace PresentationLayer
         private void OrderItem_Click(object sender, EventArgs e)
         {
             var selectedTable = GetFocusedTable();
-            if (selectedTable == null)
-            {
-                MessageBox.Show("Vui lòng chọn một bàn để đặt món.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            //if (selectedTable == null)
+            //{
+            //    MessageBox.Show("Vui lòng chọn một bàn để đặt món.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
             var frmMain = Application.OpenForms.OfType<frm_main>().FirstOrDefault();
             if (frmMain != null)
@@ -402,6 +402,16 @@ namespace PresentationLayer
                 // Thông báo người dùng
                 MessageBox.Show($"Hóa đơn đã được lưu vào file Excel tại: {filePath}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btn_tableSwap_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Chức năng chưa được cập nhật!");
+        }
+
+        private void lb_sum_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
