@@ -119,5 +119,41 @@ namespace DataLayer.Repository
                 throw new Exception("Lỗi khi hoàn tất thanh toán: " + errorMessage);
             }
         }
+
+        public void SwapTable(int tableId1, int tableId2)
+        {
+            try
+            {
+                // Bảo đảm dữ liệu tạm không null
+                if (!TemporaryDataStorage.TemporaryOrderDetails.ContainsKey(tableId1))
+                    TemporaryDataStorage.TemporaryOrderDetails[tableId1] = new List<TemporaryOrderDetail>();
+
+                if (!TemporaryDataStorage.TemporaryOrderDetails.ContainsKey(tableId2))
+                    TemporaryDataStorage.TemporaryOrderDetails[tableId2] = new List<TemporaryOrderDetail>();
+
+                // Hoán đổi order tạm
+                var tempOrders = TemporaryDataStorage.TemporaryOrderDetails[tableId1];
+                TemporaryDataStorage.TemporaryOrderDetails[tableId1] = TemporaryDataStorage.TemporaryOrderDetails[tableId2];
+                TemporaryDataStorage.TemporaryOrderDetails[tableId2] = tempOrders;
+
+                // Hoán đổi trạng thái bàn
+                var table1 = _context.Tables.FirstOrDefault(t => t.Id == tableId1);
+                var table2 = _context.Tables.FirstOrDefault(t => t.Id == tableId2);
+
+                if (table1 != null && table2 != null)
+                {
+                    var tmpStatus = table1.Status;
+                    table1.Status = table2.Status;
+                    table2.Status = tmpStatus;
+
+                    _context.SaveChanges(); // Lưu lại DB
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi hoán đổi bàn: " + ex.Message);
+            }
+        }
+
     }
 }

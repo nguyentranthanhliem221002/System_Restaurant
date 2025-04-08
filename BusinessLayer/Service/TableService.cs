@@ -30,6 +30,9 @@ namespace BusinessLayer.Service
         {
             _tableRepository.CompletePayment(tableId);
         }
-
+        public void SwapTable(int tableId1, int tableId2)
+        {
+            _tableRepository.SwapTable(tableId1, tableId2);
+        }
     }
 }

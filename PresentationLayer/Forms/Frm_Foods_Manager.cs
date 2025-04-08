@@ -136,6 +136,16 @@ namespace PresentationLayer
             }
         }
 
+        private void btn_frm_categories_manager_Click(object sender, EventArgs e)
+        {
+            var frmMain = Application.OpenForms.OfType<frm_main>().FirstOrDefault();
+            if (frmMain != null)
+            {
+                var categoryForm = _serviceProvider.GetRequiredService<frm_categories_manager>();
+                frmMain.OpenChildForm(categoryForm);
+            }
+        }
+
         private void btn_foodAdd_Click(object sender, EventArgs e)
         {
             if (!ValidateFoodInput(out var name, out var price, out var desc, out var img, out var categoryId)) return;
@@ -186,9 +196,13 @@ namespace PresentationLayer
             txt_foodName.Text = food.Name;
             txt_foodPrice.Text = food.Price.ToString();
             txt_foodDescription.Text = food.Description;
+
+            // Đảm bảo ảnh hiển thị đúng và vừa khung
             pictureBox_foodImage.ImageLocation = food.Image;
+            pictureBox_foodImage.SizeMode = PictureBoxSizeMode.Zoom; // ✅ THÊM DÒNG NÀY
             pictureBox_foodImage.Tag = food.Image;
         }
+
 
         private void btn_foodUpdate_Click(object sender, EventArgs e)
         {
@@ -233,7 +247,7 @@ namespace PresentationLayer
                 if (!results.Any())
                 {
                     MessageBox.Show("Không tìm thấy món ăn nào phù hợp!", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadFoods(); 
+                    LoadFoods();
                     return;
                 }
 
@@ -244,16 +258,5 @@ namespace PresentationLayer
                 MessageBox.Show($"Lỗi khi tìm kiếm món ăn: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btn_frm_categories_manager_Click(object sender, EventArgs e)
-        {
-            var frmMain = Application.OpenForms.OfType<frm_main>().FirstOrDefault();
-            if (frmMain != null)
-            {
-                var categoryForm = _serviceProvider.GetRequiredService<frm_categories_manager>();
-                frmMain.OpenChildForm(categoryForm);
-            }
-        }
-
     }
 }

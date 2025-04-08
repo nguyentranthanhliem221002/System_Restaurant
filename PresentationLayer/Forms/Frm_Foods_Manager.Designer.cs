@@ -57,8 +57,8 @@
             // 
             // lb_frm_foods_manager_title
             // 
-            lb_frm_foods_manager_title.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lb_frm_foods_manager_title.Location = new Point(472, 8);
+            lb_frm_foods_manager_title.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lb_frm_foods_manager_title.Location = new Point(462, 9);
             lb_frm_foods_manager_title.Margin = new Padding(4, 0, 4, 0);
             lb_frm_foods_manager_title.Name = "lb_frm_foods_manager_title";
             lb_frm_foods_manager_title.Size = new Size(358, 57);
@@ -70,11 +70,11 @@
             // 
             lb_foodName.AutoSize = true;
             lb_foodName.BackColor = Color.Transparent;
-            lb_foodName.Font = new Font("Microsoft Sans Serif", 9F);
+            lb_foodName.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             lb_foodName.Location = new Point(29, 72);
             lb_foodName.Margin = new Padding(4, 0, 4, 0);
             lb_foodName.Name = "lb_foodName";
-            lb_foodName.Size = new Size(99, 18);
+            lb_foodName.Size = new Size(114, 23);
             lb_foodName.TabIndex = 2;
             lb_foodName.Text = "Tên món ăn : ";
             lb_foodName.TextAlign = ContentAlignment.MiddleLeft;
@@ -83,11 +83,11 @@
             // 
             lb_foodPrice.AutoSize = true;
             lb_foodPrice.BackColor = Color.Transparent;
-            lb_foodPrice.Font = new Font("Microsoft Sans Serif", 9F);
+            lb_foodPrice.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             lb_foodPrice.Location = new Point(29, 113);
             lb_foodPrice.Margin = new Padding(4, 0, 4, 0);
             lb_foodPrice.Name = "lb_foodPrice";
-            lb_foodPrice.Size = new Size(73, 18);
+            lb_foodPrice.Size = new Size(83, 23);
             lb_foodPrice.TabIndex = 3;
             lb_foodPrice.Text = "Giá món :";
             lb_foodPrice.TextAlign = ContentAlignment.MiddleLeft;
@@ -96,11 +96,11 @@
             // 
             lb_foodImage.AutoSize = true;
             lb_foodImage.BackColor = Color.Transparent;
-            lb_foodImage.Font = new Font("Microsoft Sans Serif", 9F);
+            lb_foodImage.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             lb_foodImage.Location = new Point(472, 69);
             lb_foodImage.Margin = new Padding(4, 0, 4, 0);
             lb_foodImage.Name = "lb_foodImage";
-            lb_foodImage.Size = new Size(78, 18);
+            lb_foodImage.Size = new Size(92, 23);
             lb_foodImage.TabIndex = 4;
             lb_foodImage.Text = "Hình ảnh : ";
             lb_foodImage.TextAlign = ContentAlignment.MiddleLeft;
@@ -109,11 +109,11 @@
             // 
             lb_foodCategory.AutoSize = true;
             lb_foodCategory.BackColor = Color.Transparent;
-            lb_foodCategory.Font = new Font("Microsoft Sans Serif", 9F);
+            lb_foodCategory.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             lb_foodCategory.Location = new Point(29, 244);
             lb_foodCategory.Margin = new Padding(4, 0, 4, 0);
             lb_foodCategory.Name = "lb_foodCategory";
-            lb_foodCategory.Size = new Size(48, 18);
+            lb_foodCategory.Size = new Size(54, 23);
             lb_foodCategory.TabIndex = 5;
             lb_foodCategory.Text = "Loại : ";
             lb_foodCategory.TextAlign = ContentAlignment.MiddleLeft;
@@ -129,6 +129,7 @@
             // 
             // btn_loadImage
             // 
+            btn_loadImage.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_loadImage.Location = new Point(568, 63);
             btn_loadImage.Margin = new Padding(4, 3, 4, 3);
             btn_loadImage.Name = "btn_loadImage";
@@ -167,11 +168,11 @@
             // 
             lb_foodDescription.AutoSize = true;
             lb_foodDescription.BackColor = Color.Transparent;
-            lb_foodDescription.Font = new Font("Microsoft Sans Serif", 9F);
+            lb_foodDescription.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             lb_foodDescription.Location = new Point(29, 146);
             lb_foodDescription.Margin = new Padding(4, 0, 4, 0);
             lb_foodDescription.Name = "lb_foodDescription";
-            lb_foodDescription.Size = new Size(82, 18);
+            lb_foodDescription.Size = new Size(93, 23);
             lb_foodDescription.TabIndex = 15;
             lb_foodDescription.Text = "Chú thích : ";
             lb_foodDescription.TextAlign = ContentAlignment.MiddleLeft;
@@ -187,10 +188,11 @@
             // 
             // btn_frm_categories_manager
             // 
+            btn_frm_categories_manager.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_frm_categories_manager.Location = new Point(308, 237);
             btn_frm_categories_manager.Margin = new Padding(4, 3, 4, 3);
             btn_frm_categories_manager.Name = "btn_frm_categories_manager";
-            btn_frm_categories_manager.Size = new Size(152, 25);
+            btn_frm_categories_manager.Size = new Size(152, 30);
             btn_frm_categories_manager.TabIndex = 17;
             btn_frm_categories_manager.Text = "Quản lý loại";
             btn_frm_categories_manager.UseVisualStyleBackColor = true;
@@ -199,6 +201,7 @@
             // groupBox_listFood
             // 
             groupBox_listFood.Controls.Add(dgv_listFood);
+            groupBox_listFood.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_listFood.Location = new Point(29, 284);
             groupBox_listFood.Margin = new Padding(4, 3, 4, 3);
             groupBox_listFood.Name = "groupBox_listFood";
@@ -215,18 +218,18 @@
             dgv_listFood.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_listFood.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_listFood.Dock = DockStyle.Fill;
-            dgv_listFood.Location = new Point(4, 20);
+            dgv_listFood.Location = new Point(4, 26);
             dgv_listFood.Margin = new Padding(4, 3, 4, 3);
             dgv_listFood.Name = "dgv_listFood";
             dgv_listFood.ReadOnly = true;
             dgv_listFood.RowHeadersWidth = 51;
-            dgv_listFood.Size = new Size(1096, 330);
+            dgv_listFood.Size = new Size(1096, 324);
             dgv_listFood.TabIndex = 1;
             // 
             // btn_foodSearch
             // 
             btn_foodSearch.BackColor = Color.Aqua;
-            btn_foodSearch.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
+            btn_foodSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_foodSearch.Location = new Point(929, 95);
             btn_foodSearch.Margin = new Padding(4, 3, 4, 3);
             btn_foodSearch.Name = "btn_foodSearch";
@@ -248,11 +251,11 @@
             // 
             lb_foodSearch.AutoSize = true;
             lb_foodSearch.BackColor = Color.Transparent;
-            lb_foodSearch.Font = new Font("Microsoft Sans Serif", 9F);
+            lb_foodSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             lb_foodSearch.Location = new Point(839, 72);
             lb_foodSearch.Margin = new Padding(4, 0, 4, 0);
             lb_foodSearch.Name = "lb_foodSearch";
-            lb_foodSearch.Size = new Size(72, 18);
+            lb_foodSearch.Size = new Size(83, 23);
             lb_foodSearch.TabIndex = 44;
             lb_foodSearch.Text = "Tìm loại : ";
             lb_foodSearch.TextAlign = ContentAlignment.MiddleLeft;
@@ -260,18 +263,19 @@
             // btn_foodUpdate
             // 
             btn_foodUpdate.BackColor = Color.Coral;
-            btn_foodUpdate.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            btn_foodUpdate.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_foodUpdate.Location = new Point(875, 643);
             btn_foodUpdate.Name = "btn_foodUpdate";
             btn_foodUpdate.Size = new Size(258, 60);
             btn_foodUpdate.TabIndex = 50;
             btn_foodUpdate.Text = "Cập nhật";
             btn_foodUpdate.UseVisualStyleBackColor = false;
+            btn_foodUpdate.Click += btn_foodUpdate_Click;
             // 
             // btn_foodFix
             // 
             btn_foodFix.BackColor = Color.Silver;
-            btn_foodFix.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            btn_foodFix.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_foodFix.ForeColor = SystemColors.ControlText;
             btn_foodFix.Location = new Point(596, 643);
             btn_foodFix.Name = "btn_foodFix";
@@ -279,21 +283,23 @@
             btn_foodFix.TabIndex = 49;
             btn_foodFix.Text = "Sửa";
             btn_foodFix.UseVisualStyleBackColor = false;
+            btn_foodFix.Click += btn_foodFix_Click;
             // 
             // btn_foodDelete
             // 
-            btn_foodDelete.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            btn_foodDelete.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_foodDelete.Location = new Point(314, 643);
             btn_foodDelete.Name = "btn_foodDelete";
             btn_foodDelete.Size = new Size(258, 60);
             btn_foodDelete.TabIndex = 48;
             btn_foodDelete.Text = "Xóa";
             btn_foodDelete.UseVisualStyleBackColor = true;
+            btn_foodDelete.Click += btn_foodDelete_Click;
             // 
             // btn_foodAdd
             // 
             btn_foodAdd.BackColor = Color.Chartreuse;
-            btn_foodAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            btn_foodAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_foodAdd.ForeColor = Color.Black;
             btn_foodAdd.Location = new Point(33, 643);
             btn_foodAdd.Name = "btn_foodAdd";
@@ -301,6 +307,7 @@
             btn_foodAdd.TabIndex = 47;
             btn_foodAdd.Text = "Thêm";
             btn_foodAdd.UseVisualStyleBackColor = false;
+            btn_foodAdd.Click += btn_foodAdd_Click;
             // 
             // frm_foods_manager
             // 

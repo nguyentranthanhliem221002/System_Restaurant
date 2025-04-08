@@ -57,18 +57,35 @@ namespace PresentationLayer
 
         private FlowLayoutPanel CreateFoodFlowPanel(Category category)
         {
-            var flowPanel = new FlowLayoutPanel { Dock = DockStyle.Fill };
+            var flowPanel = new FlowLayoutPanel {
+                Dock = DockStyle.Fill,
+                AutoScroll = true, // Bật tính năng cuộn tự động
+         
+            };
 
             foreach (var food in _foodService.GetFoodByCategoryId(category.Id))
             {
                 var btnFood = new Button
                 {
                     Text = food.Name,
-                    Width = 100,
-                    Height = 100,
+                    Width = 280,
+                    Height = 300,
                     Tag = food,
-                    TextAlign = ContentAlignment.MiddleCenter
+                    TextAlign = ContentAlignment.BottomCenter,
+                    BackgroundImageLayout = ImageLayout.Stretch // Cách hiển thị ảnh bên trong Button
                 };
+
+                // Đảm bảo rằng ảnh nền được lấy đúng từ thư mục Resources
+                var imagePath = Path.Combine(Application.StartupPath, "Resources", food.Image);
+                if (File.Exists(imagePath)) // Kiểm tra sự tồn tại của tệp ảnh
+                {
+                    btnFood.BackgroundImage = Image.FromFile(imagePath);
+                }
+                else
+                {
+                 
+                }
+
                 btnFood.Click += BtnFood_Click;
                 flowPanel.Controls.Add(btnFood);
             }
@@ -109,6 +126,11 @@ namespace PresentationLayer
         public void SetTableInfo(Table selectedTable)
         {
             _selectedTable = selectedTable;
+            if (selectedTable == null)
+            {
+                MessageBox.Show("Vui lòng chọn bàn trước khi tiếp tục.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             lb_tableNumber.Text = $"Bàn: {_selectedTable.Id}";
 
             try
@@ -197,6 +219,16 @@ namespace PresentationLayer
             _frmTablesManager.UpdateTableColor(_selectedTable.Id, Color.Red);
 
             MessageBox.Show("Lưu đơn hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void lb_tableNumber_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_orderDetail_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

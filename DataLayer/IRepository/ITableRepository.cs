@@ -8,7 +8,7 @@ namespace DataLayer.IRepository
         void UpdateTableStatus(int tableId, TableStatus status);
         TableStatus GetLatestTableStatus(int tableId);
         void CompletePayment(int tableId);
-
+        void SwapTable(int tableId1, int tableId2);
 
     }
 }

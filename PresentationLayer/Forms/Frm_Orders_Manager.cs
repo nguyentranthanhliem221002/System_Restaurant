@@ -25,7 +25,8 @@ namespace PresentationLayer
         }
         public void LoadOrders()
         {
-            try{
+            try
+            {
                 dgv_order.DataSource = _orderService.GetAllOrders();
 
                 if (dgv_order.Columns.Contains("User"))
@@ -46,10 +47,21 @@ namespace PresentationLayer
                 {
                     dgv_order.Columns["OrderDetails"].Visible = false;
                 }
-            }              
-            catch (Exception ex) {
-                MessageBox.Show("Lỗi khi tải danh sách món ăn: " + ex.Message); 
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách món ăn: " + ex.Message);
+            }
+        }
+
+        private void groupBox_listRole_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_order_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

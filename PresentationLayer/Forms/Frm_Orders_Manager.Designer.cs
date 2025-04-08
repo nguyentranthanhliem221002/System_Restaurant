@@ -44,7 +44,7 @@
             // 
             // lb_frm_orders_manager_title
             // 
-            lb_frm_orders_manager_title.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lb_frm_orders_manager_title.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lb_frm_orders_manager_title.Location = new Point(396, 9);
             lb_frm_orders_manager_title.Name = "lb_frm_orders_manager_title";
             lb_frm_orders_manager_title.Size = new Size(368, 63);
@@ -60,15 +60,17 @@
             dgv_order.BorderStyle = BorderStyle.None;
             dgv_order.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_order.Dock = DockStyle.Fill;
-            dgv_order.Location = new Point(3, 23);
+            dgv_order.Location = new Point(3, 26);
             dgv_order.Name = "dgv_order";
             dgv_order.ReadOnly = true;
             dgv_order.RowHeadersWidth = 51;
-            dgv_order.Size = new Size(1133, 452);
+            dgv_order.Size = new Size(1133, 449);
             dgv_order.TabIndex = 3;
+            dgv_order.CellContentClick += dgv_order_CellContentClick;
             // 
             // btn_ordersSearch
             // 
+            btn_ordersSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_ordersSearch.Location = new Point(1047, 75);
             btn_ordersSearch.Name = "btn_ordersSearch";
             btn_ordersSearch.Size = new Size(94, 27);
@@ -87,10 +89,10 @@
             // 
             lb_orderTime.AutoSize = true;
             lb_orderTime.BackColor = Color.Transparent;
-            lb_orderTime.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lb_orderTime.Location = new Point(648, 78);
+            lb_orderTime.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
+            lb_orderTime.Location = new Point(629, 77);
             lb_orderTime.Name = "lb_orderTime";
-            lb_orderTime.Size = new Size(137, 20);
+            lb_orderTime.Size = new Size(156, 23);
             lb_orderTime.TabIndex = 19;
             lb_orderTime.Text = "Ngày/ Tháng/ Năm";
             lb_orderTime.TextAlign = ContentAlignment.MiddleLeft;
@@ -98,6 +100,7 @@
             // groupBox_order
             // 
             groupBox_order.Controls.Add(dgv_order);
+            groupBox_order.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_order.Location = new Point(12, 223);
             groupBox_order.Name = "groupBox_order";
             groupBox_order.Size = new Size(1139, 478);
@@ -109,12 +112,14 @@
             // 
             groupBox_listRole.Controls.Add(lb_roleEmployee);
             groupBox_listRole.Controls.Add(lb_roleAdmin);
-            groupBox_listRole.Location = new Point(21, 75);
+            groupBox_listRole.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
+            groupBox_listRole.Location = new Point(15, 75);
             groupBox_listRole.Name = "groupBox_listRole";
             groupBox_listRole.Size = new Size(393, 142);
             groupBox_listRole.TabIndex = 24;
             groupBox_listRole.TabStop = false;
             groupBox_listRole.Text = "Định nghĩa quyền : ";
+            groupBox_listRole.Enter += groupBox_listRole_Enter;
             // 
             // lb_roleEmployee
             // 

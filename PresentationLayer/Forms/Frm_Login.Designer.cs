@@ -44,7 +44,7 @@
             // 
             // lb_frm_login_title
             // 
-            lb_frm_login_title.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lb_frm_login_title.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lb_frm_login_title.Location = new Point(731, 136);
             lb_frm_login_title.Name = "lb_frm_login_title";
             lb_frm_login_title.Size = new Size(318, 63);
@@ -64,9 +64,10 @@
             // lb_userName
             // 
             lb_userName.AutoSize = true;
+            lb_userName.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             lb_userName.Location = new Point(625, 242);
             lb_userName.Name = "lb_userName";
-            lb_userName.Size = new Size(107, 20);
+            lb_userName.Size = new Size(121, 23);
             lb_userName.TabIndex = 4;
             lb_userName.Text = "Tên đăng nhập";
             lb_userName.TextAlign = ContentAlignment.MiddleLeft;
@@ -74,9 +75,10 @@
             // lb_password
             // 
             lb_password.AutoSize = true;
+            lb_password.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             lb_password.Location = new Point(625, 316);
             lb_password.Name = "lb_password";
-            lb_password.Size = new Size(70, 20);
+            lb_password.Size = new Size(79, 23);
             lb_password.TabIndex = 5;
             lb_password.Text = "Mật khẩu";
             lb_password.TextAlign = ContentAlignment.MiddleLeft;
@@ -99,6 +101,7 @@
             // btn_submit
             // 
             btn_submit.BackColor = Color.Red;
+            btn_submit.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_submit.ForeColor = Color.Black;
             btn_submit.Location = new Point(763, 411);
             btn_submit.Name = "btn_submit";
@@ -111,9 +114,10 @@
             // linkLabel_register
             // 
             linkLabel_register.AutoSize = true;
+            linkLabel_register.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             linkLabel_register.Location = new Point(986, 356);
             linkLabel_register.Name = "linkLabel_register";
-            linkLabel_register.Size = new Size(63, 20);
+            linkLabel_register.Size = new Size(71, 23);
             linkLabel_register.TabIndex = 9;
             linkLabel_register.TabStop = true;
             linkLabel_register.Text = "Đăng ký";

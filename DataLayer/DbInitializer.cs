@@ -47,29 +47,57 @@ namespace DataLayer
 
         private static void SeedFoods(ApplicationDbContext context)
         {
-            var foodCategory = context.Categories.FirstOrDefault(c => c.Name == "Món Ăn");
-            if (foodCategory != null)
+            var categoryMonAn = context.Categories.FirstOrDefault(c => c.Name == "Món Ăn");
+            var categoryDoUong = context.Categories.FirstOrDefault(c => c.Name == "Đồ Uống");
+            var categoryMonThem = context.Categories.FirstOrDefault(c => c.Name == "Món Thêm");
+
+            if (categoryMonAn == null || categoryDoUong == null || categoryMonThem == null)
             {
-                if (!context.Foods.Any())
+                Console.WriteLine("⚠️ Không tìm thấy đầy đủ danh mục! Hãy chắc chắn rằng đã gọi SeedCategories trước.");
+                return;
+            }
+
+            if (!context.Foods.Any())
+            {
+                var foods = new List<Food>
                 {
-                    var foods = new List<Food>
-                    {
-                        new Food { Name = "Mì Sin Cay", Price = 55.000M, Image = "sin_cay.jpg", Description = "Mì cay Hàn Quốc", CategoryId = foodCategory.Id },
-                        new Food { Name = "Mì Soyumm", Price = 45.000M, Image = "soyumm.jpg", Description = "Mì gói Nhật Bản", CategoryId = foodCategory.Id },
-                        new Food { Name = "Mì Tương Đen", Price = 40.000M, Image = "tuong_den.jpg", Description = "Mì tương đen Hàn Quốc", CategoryId = foodCategory.Id }
-                    };
-                    context.Foods.AddRange(foods);
-                    context.SaveChanges();
-                    Console.WriteLine("✅ Seed dữ liệu món ăn thành công!");
-                }
-                else
-                {
-                    Console.WriteLine("⚠️ Dữ liệu món ăn đã tồn tại!");
-                }
+                    new Food { Name = "Mì lẩu hái bách tuột", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_bachTuot.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái cá", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_ca.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái đùi gà", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_duiga.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái cá hồi", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_caHoi.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái xúc xích", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_xucXich.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái sườn sụn", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_suonSun.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái thập cẩm", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_thapCam.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì trộn hải sản", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miTron_haiSan.png", Description = "...", CategoryId = categoryMonAn.Id },
+
+                    new Food { Name = "Fanta", Price = 20M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\fanta.png", Description = "...", CategoryId = categoryDoUong.Id },
+                    new Food { Name = "Coca Zero", Price = 20M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\cocazero.jpg", Description = "...", CategoryId = categoryDoUong.Id },
+                    new Food { Name = "Aquafina", Price = 15M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\aqua.jpg", Description = "...", CategoryId = categoryDoUong.Id },
+                    new Food { Name = "Sting", Price = 20M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\sting.jpg", Description = "...", CategoryId = categoryDoUong.Id },
+                    new Food { Name = "Soda dâu", Price = 32M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\soda_dau.png", Description = "...", CategoryId = categoryDoUong.Id },
+                    new Food { Name = "Soda chanh", Price = 32M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\soda_chanh.jpg", Description = "...", CategoryId = categoryDoUong.Id },
+                    new Food { Name = "Trà đào", Price = 28M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\tra_dao.png", Description = "...", CategoryId = categoryDoUong.Id },
+
+
+                    new Food { Name = "Cơm trắng", Price = 25M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\com_trang.jpg", Description = "...", CategoryId = categoryMonThem.Id },
+                    new Food { Name = "Mì 1 vắt", Price = 15M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\mi_them.jpg", Description = "...", CategoryId = categoryMonThem.Id },
+
+                    new Food { Name = "Khoai tây chiên", Price = 25M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\khoai_tay_chien.jpg", Description = "...", CategoryId = categoryMonThem.Id },
+                    new Food { Name = "Takoyaki", Price = 25M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\takoyaki.jpg", Description = "...", CategoryId = categoryMonThem.Id },
+                    new Food { Name = "Mandu chiên", Price = 25M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\mandu_chien.jpg", Description = "...", CategoryId = categoryMonThem.Id },
+                    new Food { Name = "Kimpap chiên", Price = 25M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\kimpap_chien.jpg", Description = "...", CategoryId = categoryMonThem.Id },
+                    new Food { Name = "Kim chi", Price = 15M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\kim_chi.jpg", Description = "...", CategoryId = categoryMonThem.Id },
+
+
+                };
+
+                context.Foods.AddRange(foods);
+                context.SaveChanges();
+                Console.WriteLine("✅ Seed dữ liệu món ăn thành công!");
             }
             else
             {
-                Console.WriteLine("⚠️ Không tìm thấy danh mục 'Món Ăn' để seed dữ liệu món ăn!");
+                Console.WriteLine("⚠️ Dữ liệu món ăn đã tồn tại!");
             }
         }
 

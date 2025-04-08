@@ -62,6 +62,7 @@
             // groupBox_OrderDetail
             // 
             groupBox_OrderDetail.Controls.Add(dgv_orderDetail);
+            groupBox_OrderDetail.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_OrderDetail.Location = new Point(636, 51);
             groupBox_OrderDetail.Name = "groupBox_OrderDetail";
             groupBox_OrderDetail.Size = new Size(515, 552);
@@ -77,12 +78,13 @@
             dgv_orderDetail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_orderDetail.Columns.AddRange(new DataGridViewColumn[] { Name, Price, Quantity, SubTotal, FoodId });
             dgv_orderDetail.Dock = DockStyle.Fill;
-            dgv_orderDetail.Location = new Point(3, 23);
+            dgv_orderDetail.Location = new Point(3, 26);
             dgv_orderDetail.Name = "dgv_orderDetail";
             dgv_orderDetail.ReadOnly = true;
             dgv_orderDetail.RowHeadersWidth = 51;
-            dgv_orderDetail.Size = new Size(509, 526);
+            dgv_orderDetail.Size = new Size(509, 523);
             dgv_orderDetail.TabIndex = 0;
+            dgv_orderDetail.CellContentClick += dgv_orderDetail_CellContentClick_1;
             // 
             // Name
             // 
@@ -122,7 +124,7 @@
             // button_saveOrderDetail
             // 
             button_saveOrderDetail.BackColor = Color.Brown;
-            button_saveOrderDetail.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_saveOrderDetail.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             button_saveOrderDetail.ForeColor = Color.Black;
             button_saveOrderDetail.Location = new Point(636, 609);
             button_saveOrderDetail.Name = "button_saveOrderDetail";

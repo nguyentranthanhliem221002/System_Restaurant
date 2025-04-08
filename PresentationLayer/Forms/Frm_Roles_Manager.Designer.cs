@@ -42,16 +42,17 @@
             dgv_listRole.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_listRole.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_listRole.Dock = DockStyle.Fill;
-            dgv_listRole.Location = new Point(3, 23);
+            dgv_listRole.Location = new Point(3, 26);
             dgv_listRole.Name = "dgv_listRole";
             dgv_listRole.ReadOnly = true;
             dgv_listRole.RowHeadersWidth = 51;
-            dgv_listRole.Size = new Size(1133, 514);
+            dgv_listRole.Size = new Size(1133, 511);
             dgv_listRole.TabIndex = 0;
             // 
             // groupBox_roles
             // 
             groupBox_roles.Controls.Add(dgv_listRole);
+            groupBox_roles.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_roles.Location = new Point(12, 161);
             groupBox_roles.Name = "groupBox_roles";
             groupBox_roles.Size = new Size(1139, 540);
@@ -61,7 +62,7 @@
             // 
             // lb_frm_roles_manager_title
             // 
-            lb_frm_roles_manager_title.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lb_frm_roles_manager_title.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lb_frm_roles_manager_title.Location = new Point(430, 9);
             lb_frm_roles_manager_title.Name = "lb_frm_roles_manager_title";
             lb_frm_roles_manager_title.Size = new Size(318, 63);

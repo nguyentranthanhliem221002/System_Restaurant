@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ListViewItem listViewItem3 = new ListViewItem("");
+            ListViewItem listViewItem1 = new ListViewItem("");
             lb_frm_tables_manager_title = new Label();
             groupBox_listTable = new GroupBox();
             flowLayoutPanel_listTable = new FlowLayoutPanel();
@@ -63,7 +63,7 @@
             // 
             // lb_frm_tables_manager_title
             // 
-            lb_frm_tables_manager_title.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lb_frm_tables_manager_title.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lb_frm_tables_manager_title.Location = new Point(432, 9);
             lb_frm_tables_manager_title.Name = "lb_frm_tables_manager_title";
             lb_frm_tables_manager_title.Size = new Size(318, 63);
@@ -74,6 +74,7 @@
             // groupBox_listTable
             // 
             groupBox_listTable.Controls.Add(flowLayoutPanel_listTable);
+            groupBox_listTable.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_listTable.Location = new Point(12, 68);
             groupBox_listTable.Name = "groupBox_listTable";
             groupBox_listTable.Size = new Size(662, 633);
@@ -85,9 +86,10 @@
             // 
             flowLayoutPanel_listTable.BackColor = SystemColors.Control;
             flowLayoutPanel_listTable.Dock = DockStyle.Fill;
-            flowLayoutPanel_listTable.Location = new Point(3, 23);
+            flowLayoutPanel_listTable.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
+            flowLayoutPanel_listTable.Location = new Point(3, 26);
             flowLayoutPanel_listTable.Name = "flowLayoutPanel_listTable";
-            flowLayoutPanel_listTable.Size = new Size(656, 607);
+            flowLayoutPanel_listTable.Size = new Size(656, 604);
             flowLayoutPanel_listTable.TabIndex = 0;
             // 
             // groupBox_infoTable
@@ -95,6 +97,7 @@
             groupBox_infoTable.Controls.Add(listView_orderDetail);
             groupBox_infoTable.Controls.Add(lb_tableStatus);
             groupBox_infoTable.Controls.Add(lb_tableNumber);
+            groupBox_infoTable.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_infoTable.Location = new Point(680, 199);
             groupBox_infoTable.Name = "groupBox_infoTable";
             groupBox_infoTable.Size = new Size(474, 323);
@@ -105,7 +108,7 @@
             // listView_orderDetail
             // 
             listView_orderDetail.Columns.AddRange(new ColumnHeader[] { Name, Price, Quantity, SubTotal });
-            listView_orderDetail.Items.AddRange(new ListViewItem[] { listViewItem3 });
+            listView_orderDetail.Items.AddRange(new ListViewItem[] { listViewItem1 });
             listView_orderDetail.Location = new Point(0, 86);
             listView_orderDetail.Name = "listView_orderDetail";
             listView_orderDetail.Size = new Size(498, 231);
@@ -138,7 +141,7 @@
             lb_tableStatus.AutoSize = true;
             lb_tableStatus.Location = new Point(11, 54);
             lb_tableStatus.Name = "lb_tableStatus";
-            lb_tableStatus.Size = new Size(30, 20);
+            lb_tableStatus.Size = new Size(31, 23);
             lb_tableStatus.TabIndex = 27;
             lb_tableStatus.Text = "???";
             // 
@@ -147,14 +150,14 @@
             lb_tableNumber.AutoSize = true;
             lb_tableNumber.Location = new Point(11, 23);
             lb_tableNumber.Name = "lb_tableNumber";
-            lb_tableNumber.Size = new Size(30, 20);
+            lb_tableNumber.Size = new Size(31, 23);
             lb_tableNumber.TabIndex = 26;
             lb_tableNumber.Text = "???";
             // 
             // btn_pay
             // 
             btn_pay.BackColor = Color.Brown;
-            btn_pay.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_pay.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_pay.ForeColor = Color.Black;
             btn_pay.Location = new Point(680, 647);
             btn_pay.Name = "btn_pay";
@@ -166,6 +169,7 @@
             // 
             // btn_print
             // 
+            btn_print.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_print.Location = new Point(1031, 647);
             btn_print.Name = "btn_print";
             btn_print.Size = new Size(120, 51);
@@ -179,6 +183,7 @@
             groupBox_optionPays.Controls.Add(radioButton_optionMomo);
             groupBox_optionPays.Controls.Add(radioButton_optionBank);
             groupBox_optionPays.Controls.Add(radioButton_optionCash);
+            groupBox_optionPays.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_optionPays.Location = new Point(680, 548);
             groupBox_optionPays.Name = "groupBox_optionPays";
             groupBox_optionPays.Size = new Size(475, 93);
@@ -189,9 +194,10 @@
             // radioButton_optionMomo
             // 
             radioButton_optionMomo.AutoSize = true;
+            radioButton_optionMomo.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             radioButton_optionMomo.Location = new Point(377, 42);
             radioButton_optionMomo.Name = "radioButton_optionMomo";
-            radioButton_optionMomo.Size = new Size(74, 24);
+            radioButton_optionMomo.Size = new Size(78, 27);
             radioButton_optionMomo.TabIndex = 2;
             radioButton_optionMomo.TabStop = true;
             radioButton_optionMomo.Text = "Momo";
@@ -201,9 +207,10 @@
             // radioButton_optionBank
             // 
             radioButton_optionBank.AutoSize = true;
+            radioButton_optionBank.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             radioButton_optionBank.Location = new Point(193, 42);
             radioButton_optionBank.Name = "radioButton_optionBank";
-            radioButton_optionBank.Size = new Size(103, 24);
+            radioButton_optionBank.Size = new Size(114, 27);
             radioButton_optionBank.TabIndex = 1;
             radioButton_optionBank.TabStop = true;
             radioButton_optionBank.Text = "Ngân hàng";
@@ -212,9 +219,10 @@
             // radioButton_optionCash
             // 
             radioButton_optionCash.AutoSize = true;
+            radioButton_optionCash.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             radioButton_optionCash.Location = new Point(24, 42);
             radioButton_optionCash.Name = "radioButton_optionCash";
-            radioButton_optionCash.Size = new Size(88, 24);
+            radioButton_optionCash.Size = new Size(97, 27);
             radioButton_optionCash.TabIndex = 0;
             radioButton_optionCash.TabStop = true;
             radioButton_optionCash.Text = "Tiền mặt";
@@ -251,6 +259,7 @@
             groupBox_tableSwap.Controls.Add(txt_table_1);
             groupBox_tableSwap.Controls.Add(txt_table_2);
             groupBox_tableSwap.Controls.Add(lb_table_2);
+            groupBox_tableSwap.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_tableSwap.Location = new Point(680, 68);
             groupBox_tableSwap.Name = "groupBox_tableSwap";
             groupBox_tableSwap.Size = new Size(474, 125);
@@ -260,6 +269,7 @@
             // 
             // btn_tableSwap
             // 
+            btn_tableSwap.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_tableSwap.Location = new Point(325, 42);
             btn_tableSwap.Name = "btn_tableSwap";
             btn_tableSwap.Size = new Size(126, 62);
@@ -273,7 +283,7 @@
             lb_table_1.AutoSize = true;
             lb_table_1.Location = new Point(20, 42);
             lb_table_1.Name = "lb_table_1";
-            lb_table_1.Size = new Size(69, 20);
+            lb_table_1.Size = new Size(81, 23);
             lb_table_1.TabIndex = 38;
             lb_table_1.Text = "Bàn ăn 1:";
             // 
@@ -298,7 +308,7 @@
             lb_table_2.AutoSize = true;
             lb_table_2.Location = new Point(20, 84);
             lb_table_2.Name = "lb_table_2";
-            lb_table_2.Size = new Size(69, 20);
+            lb_table_2.Size = new Size(81, 23);
             lb_table_2.TabIndex = 36;
             lb_table_2.Text = "Bàn ăn 2:";
             // 

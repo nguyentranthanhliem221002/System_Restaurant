@@ -406,8 +406,21 @@ namespace PresentationLayer
 
         private void btn_tableSwap_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Chức năng chưa được cập nhật!");
+            try
+            {
+                int tableId1 = Int32.Parse(txt_table_1.Text);
+                int tableId2 = Int32.Parse(txt_table_2.Text);
+
+               _tableService.SwapTable(tableId1, tableId2); // Gọi từ repository
+
+                MessageBox.Show($"Đã hoán đổi món ăn giữa bàn {tableId1} và {tableId2}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
+
 
         private void lb_sum_Click(object sender, EventArgs e)
         {
