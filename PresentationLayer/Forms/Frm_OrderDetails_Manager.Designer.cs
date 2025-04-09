@@ -139,7 +139,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
-            ClientSize = new Size(1163, 713);
+            ClientSize = new Size(1171, 713);
             Controls.Add(button_saveOrderDetail);
             Controls.Add(lb_tableNumber);
             Controls.Add(groupBox_OrderDetail);

@@ -91,16 +91,16 @@
             dgv_lisUser.Name = "dgv_lisUser";
             dgv_lisUser.ReadOnly = true;
             dgv_lisUser.RowHeadersWidth = 51;
-            dgv_lisUser.Size = new Size(1235, 363);
+            dgv_lisUser.Size = new Size(1090, 268);
             dgv_lisUser.TabIndex = 1;
             // 
             // btn_userSearch
             // 
             btn_userSearch.BackColor = Color.Aqua;
             btn_userSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            btn_userSearch.Location = new Point(1043, 175);
+            btn_userSearch.Location = new Point(813, 164);
             btn_userSearch.Name = "btn_userSearch";
-            btn_userSearch.Size = new Size(232, 49);
+            btn_userSearch.Size = new Size(318, 49);
             btn_userSearch.TabIndex = 54;
             btn_userSearch.Text = "Search";
             btn_userSearch.UseVisualStyleBackColor = false;
@@ -108,9 +108,9 @@
             // 
             // txt_userSearch
             // 
-            txt_userSearch.Location = new Point(1043, 137);
+            txt_userSearch.Location = new Point(813, 126);
             txt_userSearch.Name = "txt_userSearch";
-            txt_userSearch.Size = new Size(231, 30);
+            txt_userSearch.Size = new Size(317, 30);
             txt_userSearch.TabIndex = 53;
             // 
             // lb_userSearch
@@ -118,7 +118,7 @@
             lb_userSearch.AutoSize = true;
             lb_userSearch.BackColor = Color.Transparent;
             lb_userSearch.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            lb_userSearch.Location = new Point(1043, 92);
+            lb_userSearch.Location = new Point(813, 85);
             lb_userSearch.Name = "lb_userSearch";
             lb_userSearch.Size = new Size(83, 23);
             lb_userSearch.TabIndex = 52;
@@ -129,9 +129,9 @@
             // 
             btn_userUpdate.BackColor = Color.Coral;
             btn_userUpdate.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            btn_userUpdate.Location = new Point(988, 737);
+            btn_userUpdate.Location = new Point(875, 641);
             btn_userUpdate.Name = "btn_userUpdate";
-            btn_userUpdate.Size = new Size(290, 69);
+            btn_userUpdate.Size = new Size(258, 60);
             btn_userUpdate.TabIndex = 51;
             btn_userUpdate.Text = "Cập nhật";
             btn_userUpdate.UseVisualStyleBackColor = false;
@@ -142,9 +142,9 @@
             btn_userFix.BackColor = Color.Silver;
             btn_userFix.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_userFix.ForeColor = SystemColors.ControlText;
-            btn_userFix.Location = new Point(674, 737);
+            btn_userFix.Location = new Point(596, 641);
             btn_userFix.Name = "btn_userFix";
-            btn_userFix.Size = new Size(290, 69);
+            btn_userFix.Size = new Size(258, 60);
             btn_userFix.TabIndex = 50;
             btn_userFix.Text = "Sửa";
             btn_userFix.UseVisualStyleBackColor = false;
@@ -153,9 +153,9 @@
             // btn_userDelete
             // 
             btn_userDelete.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            btn_userDelete.Location = new Point(357, 737);
+            btn_userDelete.Location = new Point(318, 641);
             btn_userDelete.Name = "btn_userDelete";
-            btn_userDelete.Size = new Size(290, 69);
+            btn_userDelete.Size = new Size(258, 60);
             btn_userDelete.TabIndex = 49;
             btn_userDelete.Text = "Xóa";
             btn_userDelete.UseVisualStyleBackColor = true;
@@ -166,9 +166,9 @@
             btn_userAdd.BackColor = Color.Chartreuse;
             btn_userAdd.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             btn_userAdd.ForeColor = Color.Black;
-            btn_userAdd.Location = new Point(40, 737);
+            btn_userAdd.Location = new Point(37, 641);
             btn_userAdd.Name = "btn_userAdd";
-            btn_userAdd.Size = new Size(290, 69);
+            btn_userAdd.Size = new Size(258, 60);
             btn_userAdd.TabIndex = 48;
             btn_userAdd.Text = "Thêm";
             btn_userAdd.UseVisualStyleBackColor = false;
@@ -180,7 +180,7 @@
             groupBox_listEmployee.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_listEmployee.Location = new Point(37, 338);
             groupBox_listEmployee.Name = "groupBox_listEmployee";
-            groupBox_listEmployee.Size = new Size(1241, 392);
+            groupBox_listEmployee.Size = new Size(1096, 297);
             groupBox_listEmployee.TabIndex = 47;
             groupBox_listEmployee.TabStop = false;
             groupBox_listEmployee.Text = "Danh nhân viên  :";
@@ -200,7 +200,7 @@
             radioButton_optionEmployee.AutoSize = true;
             radioButton_optionEmployee.Checked = true;
             radioButton_optionEmployee.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            radioButton_optionEmployee.Location = new Point(10, 154);
+            radioButton_optionEmployee.Location = new Point(167, 49);
             radioButton_optionEmployee.Name = "radioButton_optionEmployee";
             radioButton_optionEmployee.Size = new Size(107, 27);
             radioButton_optionEmployee.TabIndex = 61;
@@ -212,7 +212,7 @@
             // 
             radioButton_optionAdmin.AutoSize = true;
             radioButton_optionAdmin.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            radioButton_optionAdmin.Location = new Point(10, 62);
+            radioButton_optionAdmin.Location = new Point(27, 49);
             radioButton_optionAdmin.Name = "radioButton_optionAdmin";
             radioButton_optionAdmin.Size = new Size(93, 27);
             radioButton_optionAdmin.TabIndex = 62;
@@ -224,9 +224,9 @@
             groupBox1.Controls.Add(radioButton_optionEmployee);
             groupBox1.Controls.Add(radioButton_optionAdmin);
             groupBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            groupBox1.Location = new Point(872, 84);
+            groupBox1.Location = new Point(813, 219);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(164, 247);
+            groupBox1.Size = new Size(317, 108);
             groupBox1.TabIndex = 64;
             groupBox1.TabStop = false;
             groupBox1.Text = "Quyền: ";
@@ -244,7 +244,7 @@
             groupBox_infoUser.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_infoUser.Location = new Point(37, 84);
             groupBox_infoUser.Name = "groupBox_infoUser";
-            groupBox_infoUser.Size = new Size(461, 247);
+            groupBox_infoUser.Size = new Size(404, 247);
             groupBox_infoUser.TabIndex = 65;
             groupBox_infoUser.TabStop = false;
             groupBox_infoUser.Text = "Thông tin user: ";
@@ -253,14 +253,14 @@
             // 
             dateTimePicker_userDateStart.Location = new Point(146, 206);
             dateTimePicker_userDateStart.Name = "dateTimePicker_userDateStart";
-            dateTimePicker_userDateStart.Size = new Size(292, 30);
+            dateTimePicker_userDateStart.Size = new Size(232, 30);
             dateTimePicker_userDateStart.TabIndex = 73;
             // 
             // txt_userFullName
             // 
             txt_userFullName.Location = new Point(146, 30);
             txt_userFullName.Name = "txt_userFullName";
-            txt_userFullName.Size = new Size(292, 30);
+            txt_userFullName.Size = new Size(232, 30);
             txt_userFullName.TabIndex = 67;
             // 
             // lb_userDateStart
@@ -291,7 +291,7 @@
             // 
             txt_userEmail.Location = new Point(146, 156);
             txt_userEmail.Name = "txt_userEmail";
-            txt_userEmail.Size = new Size(292, 30);
+            txt_userEmail.Size = new Size(232, 30);
             txt_userEmail.TabIndex = 71;
             // 
             // lb_userNumberPhone
@@ -322,7 +322,7 @@
             // 
             txt_userNumberPhone.Location = new Point(146, 91);
             txt_userNumberPhone.Name = "txt_userNumberPhone";
-            txt_userNumberPhone.Size = new Size(292, 30);
+            txt_userNumberPhone.Size = new Size(232, 30);
             txt_userNumberPhone.TabIndex = 69;
             // 
             // groupBox_user
@@ -332,7 +332,7 @@
             groupBox_user.Controls.Add(lb_userUserName);
             groupBox_user.Controls.Add(txt_userUserName);
             groupBox_user.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            groupBox_user.Location = new Point(505, 92);
+            groupBox_user.Location = new Point(447, 85);
             groupBox_user.Name = "groupBox_user";
             groupBox_user.Size = new Size(360, 242);
             groupBox_user.TabIndex = 66;
@@ -381,7 +381,7 @@
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
-            ClientSize = new Size(1308, 820);
+            ClientSize = new Size(1171, 713);
             Controls.Add(groupBox_user);
             Controls.Add(groupBox_infoUser);
             Controls.Add(groupBox1);

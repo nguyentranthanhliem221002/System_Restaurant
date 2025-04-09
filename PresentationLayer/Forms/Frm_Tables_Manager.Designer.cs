@@ -317,7 +317,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
-            ClientSize = new Size(1163, 713);
+            ClientSize = new Size(1171, 713);
             Controls.Add(groupBox_tableSwap);
             Controls.Add(lb_sum);
             Controls.Add(label2);

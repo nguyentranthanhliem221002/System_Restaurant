@@ -141,18 +141,20 @@
             // 
             // txt_foodName
             // 
+            txt_foodName.BorderStyle = BorderStyle.None;
             txt_foodName.Location = new Point(145, 69);
             txt_foodName.Margin = new Padding(4, 3, 4, 3);
             txt_foodName.Name = "txt_foodName";
-            txt_foodName.Size = new Size(314, 24);
+            txt_foodName.Size = new Size(314, 17);
             txt_foodName.TabIndex = 12;
             // 
             // txt_foodPrice
             // 
+            txt_foodPrice.BorderStyle = BorderStyle.None;
             txt_foodPrice.Location = new Point(145, 107);
             txt_foodPrice.Margin = new Padding(4, 3, 4, 3);
             txt_foodPrice.Name = "txt_foodPrice";
-            txt_foodPrice.Size = new Size(314, 24);
+            txt_foodPrice.Size = new Size(314, 17);
             txt_foodPrice.TabIndex = 13;
             // 
             // comboBox_listCategory
@@ -179,6 +181,7 @@
             // 
             // txt_foodDescription
             // 
+            txt_foodDescription.BorderStyle = BorderStyle.None;
             txt_foodDescription.Location = new Point(145, 146);
             txt_foodDescription.Margin = new Padding(4, 3, 4, 3);
             txt_foodDescription.Multiline = true;
@@ -241,10 +244,11 @@
             // 
             // txt_foodSearch
             // 
+            txt_foodSearch.BorderStyle = BorderStyle.None;
             txt_foodSearch.Location = new Point(929, 66);
             txt_foodSearch.Margin = new Padding(4, 3, 4, 3);
             txt_foodSearch.Name = "txt_foodSearch";
-            txt_foodSearch.Size = new Size(200, 24);
+            txt_foodSearch.Size = new Size(200, 17);
             txt_foodSearch.TabIndex = 45;
             // 
             // lb_foodSearch
@@ -314,7 +318,7 @@
             AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
-            ClientSize = new Size(1163, 713);
+            ClientSize = new Size(1171, 713);
             Controls.Add(btn_foodUpdate);
             Controls.Add(btn_foodFix);
             Controls.Add(btn_foodDelete);
