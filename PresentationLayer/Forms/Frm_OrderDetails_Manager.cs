@@ -185,19 +185,21 @@ namespace PresentationLayer
                                           );
             }
         }
-
         public void SaveTemporaryOrderDetails()
         {
-            TemporaryDataStorage.TemporaryOrderDetails[_selectedTable.Id] = dgv_orderDetail.Rows.Cast<DataGridViewRow>()
-                .Where(row => row.Cells[0].Value != null)
+            TemporaryDataStorage.TemporaryOrderDetails[_selectedTable.Id] = dgv_orderDetail.Rows
+                .Cast<DataGridViewRow>()
+                .Where(row => row.Cells[0].Value != null) // đảm bảo ít nhất có tên món
                 .Select(row => new TemporaryOrderDetail
                 {
-                    FoodName = row.Cells[0].Value.ToString(),
-                    Level = Enum.Parse<SpicyLevel>(row.Cells[1].Value.ToString()),
-                    Price = decimal.Parse(row.Cells[2].Value.ToString()),
-                    Quantity = int.Parse(row.Cells[3].Value.ToString()),
-                    SubTotal = decimal.Parse(row.Cells[4].Value.ToString()),
-                    FoodId = int.Parse(row.Cells[5].Value.ToString()),
+                    FoodName = row.Cells[0].Value?.ToString(),
+                    Level = row.Cells[1].Value != null
+                        ? Enum.TryParse<SpicyLevel>(row.Cells[1].Value.ToString(), out var level) ? level : (SpicyLevel?)null
+                        : null,
+                    Price = row.Cells[2].Value != null ? decimal.Parse(row.Cells[2].Value.ToString()) : 0,
+                    Quantity = row.Cells[3].Value != null ? int.Parse(row.Cells[3].Value.ToString()) : 0,
+                    SubTotal = row.Cells[4].Value != null ? decimal.Parse(row.Cells[4].Value.ToString()) : 0,
+                    FoodId = row.Cells[5].Value != null ? int.Parse(row.Cells[5].Value.ToString()) : 0,
                     TableId = _selectedTable.Id
                 })
                 .ToList();
