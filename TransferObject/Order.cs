@@ -14,7 +14,7 @@ namespace TransferObject
         [Required]
         [Column(TypeName = "decimal(18,3)")]
         public decimal Total { get; set; }
-        public OrderStatus Status { get; set; } = OrderStatus.Pending;
+        public OrderStatus Status { get; set; }
 
         // Khóa ngoại và có quan hệ 1 - n với Role
         public int UserId { get; set; }
