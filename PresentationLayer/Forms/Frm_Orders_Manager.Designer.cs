@@ -37,6 +37,7 @@
             groupBox_listRole = new GroupBox();
             lb_roleEmployee = new Label();
             lb_roleAdmin = new Label();
+            groupBox_infoOrder = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dgv_order).BeginInit();
             groupBox_order.SuspendLayout();
             groupBox_listRole.SuspendLayout();
@@ -64,7 +65,7 @@
             dgv_order.Name = "dgv_order";
             dgv_order.ReadOnly = true;
             dgv_order.RowHeadersWidth = 51;
-            dgv_order.Size = new Size(1133, 449);
+            dgv_order.Size = new Size(608, 449);
             dgv_order.TabIndex = 3;
             dgv_order.CellContentClick += dgv_order_CellContentClick;
             // 
@@ -80,17 +81,16 @@
             // 
             // dateTimePicker_orderTime
             // 
-            dateTimePicker_orderTime.Location = new Point(791, 75);
+            dateTimePicker_orderTime.Location = new Point(808, 75);
             dateTimePicker_orderTime.Name = "dateTimePicker_orderTime";
-            dateTimePicker_orderTime.Size = new Size(250, 27);
+            dateTimePicker_orderTime.Size = new Size(233, 27);
             dateTimePicker_orderTime.TabIndex = 20;
             // 
             // lb_orderTime
             // 
-            lb_orderTime.AutoSize = true;
             lb_orderTime.BackColor = Color.Transparent;
             lb_orderTime.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            lb_orderTime.Location = new Point(629, 77);
+            lb_orderTime.Location = new Point(646, 77);
             lb_orderTime.Name = "lb_orderTime";
             lb_orderTime.Size = new Size(156, 23);
             lb_orderTime.TabIndex = 19;
@@ -103,7 +103,7 @@
             groupBox_order.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_order.Location = new Point(12, 223);
             groupBox_order.Name = "groupBox_order";
-            groupBox_order.Size = new Size(1139, 478);
+            groupBox_order.Size = new Size(614, 478);
             groupBox_order.TabIndex = 18;
             groupBox_order.TabStop = false;
             groupBox_order.Text = "Doanh thu : ";
@@ -115,7 +115,7 @@
             groupBox_listRole.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             groupBox_listRole.Location = new Point(15, 75);
             groupBox_listRole.Name = "groupBox_listRole";
-            groupBox_listRole.Size = new Size(393, 142);
+            groupBox_listRole.Size = new Size(611, 142);
             groupBox_listRole.TabIndex = 24;
             groupBox_listRole.TabStop = false;
             groupBox_listRole.Text = "Định nghĩa quyền : ";
@@ -145,12 +145,22 @@
             lb_roleAdmin.Text = "Quản trị : 1";
             lb_roleAdmin.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // groupBox_infoOrder
+            // 
+            groupBox_infoOrder.Location = new Point(646, 128);
+            groupBox_infoOrder.Name = "groupBox_infoOrder";
+            groupBox_infoOrder.Size = new Size(495, 573);
+            groupBox_infoOrder.TabIndex = 25;
+            groupBox_infoOrder.TabStop = false;
+            groupBox_infoOrder.Text = "Hóa đơn:";
+            // 
             // frm_orders_manager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MistyRose;
             ClientSize = new Size(1171, 713);
+            Controls.Add(groupBox_infoOrder);
             Controls.Add(groupBox_listRole);
             Controls.Add(lb_frm_orders_manager_title);
             Controls.Add(btn_ordersSearch);
@@ -167,7 +177,6 @@
             groupBox_listRole.ResumeLayout(false);
             groupBox_listRole.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -181,5 +190,6 @@
         private GroupBox groupBox_listRole;
         private Label lb_roleEmployee;
         private Label lb_roleAdmin;
+        private GroupBox groupBox_infoOrder;
     }
 }

@@ -7,11 +7,11 @@ namespace DataLayer
     {
         public static void SeedData(ApplicationDbContext context)
         {
-            context.Database.Migrate(); // Đảm bảo database đã được tạo
-            context.ChangeTracker.Clear(); // Tránh lỗi duplicate key nếu seed lại
+            context.Database.Migrate();
+            context.ChangeTracker.Clear(); 
 
-            SeedRoles(context); // 🔥 Gọi trước
-            SeedUsers(context); // 🔥 Gọi sau
+            SeedRoles(context); 
+            SeedUsers(context); 
 
             SeedTables(context);
             SeedCategories(context);
@@ -22,10 +22,10 @@ namespace DataLayer
         {
             if (!context.Tables.Any())
             {
-                var tables = Enumerable.Range(1, 20).Select(_ => new Table()); // Không set Id
+                var tables = Enumerable.Range(1, 20).Select(_ => new Table()); 
                 context.Tables.AddRange(tables);
                 context.SaveChanges();
-                Console.WriteLine("✅ Seed dữ liệu bàn thành công!");
+                Console.WriteLine(" Seed dữ liệu bàn thành công!");
             }
         }
 
@@ -41,7 +41,7 @@ namespace DataLayer
                 };
                 context.Categories.AddRange(categories);
                 context.SaveChanges();
-                Console.WriteLine("✅ Seed dữ liệu danh mục thành công!");
+                Console.WriteLine(" Seed dữ liệu danh mục thành công!");
             }
         }
 
@@ -53,7 +53,7 @@ namespace DataLayer
 
             if (categoryMonAn == null || categoryDoUong == null || categoryMonThem == null)
             {
-                Console.WriteLine("⚠️ Không tìm thấy đầy đủ danh mục! Hãy chắc chắn rằng đã gọi SeedCategories trước.");
+                Console.WriteLine(" Không tìm thấy đầy đủ danh mục! Hãy chắc chắn rằng đã gọi SeedCategories trước.");
                 return;
             }
 
@@ -61,14 +61,14 @@ namespace DataLayer
             {
                 var foods = new List<Food>
                 {
-                    new Food { Name = "Mì lẩu hái bách tuột", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_bachTuot.png", Description = "...", CategoryId = categoryMonAn.Id },
-                    new Food { Name = "Mì lẩu thái cá", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_ca.png", Description = "...", CategoryId = categoryMonAn.Id },
-                    new Food { Name = "Mì lẩu thái đùi gà", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_duiga.png", Description = "...", CategoryId = categoryMonAn.Id },
-                    new Food { Name = "Mì lẩu thái cá hồi", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_caHoi.png", Description = "...", CategoryId = categoryMonAn.Id },
-                    new Food { Name = "Mì lẩu thái xúc xích", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_xucXich.png", Description = "...", CategoryId = categoryMonAn.Id },
-                    new Food { Name = "Mì lẩu thái sườn sụn", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_suonSun.png", Description = "...", CategoryId = categoryMonAn.Id },
-                    new Food { Name = "Mì lẩu thái thập cẩm", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_thapCam.png", Description = "...", CategoryId = categoryMonAn.Id },
-                    new Food { Name = "Mì trộn hải sản", Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miTron_haiSan.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu hái bách tuột", Price = 45M, Level = SpicyLevel.Level0 , Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_bachTuot.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái cá", Level = SpicyLevel.Level0 , Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_ca.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái đùi gà", Level = SpicyLevel.Level0 , Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_duiga.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái cá hồi", Level = SpicyLevel.Level0 ,Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_caHoi.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái xúc xích", Level = SpicyLevel.Level0, Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_xucXich.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái sườn sụn", Level = SpicyLevel.Level0 , Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_suonSun.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì lẩu thái thập cẩm", Level = SpicyLevel.Level0, Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miLauThai_thapCam.png", Description = "...", CategoryId = categoryMonAn.Id },
+                    new Food { Name = "Mì trộn hải sản", Level = SpicyLevel.Level0 , Price = 45M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\miTron_haiSan.png", Description = "...", CategoryId = categoryMonAn.Id },
 
                     new Food { Name = "Fanta", Price = 20M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\fanta.png", Description = "...", CategoryId = categoryDoUong.Id },
                     new Food { Name = "Coca Zero", Price = 20M, Image = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\cocazero.jpg", Description = "...", CategoryId = categoryDoUong.Id },
@@ -93,11 +93,11 @@ namespace DataLayer
 
                 context.Foods.AddRange(foods);
                 context.SaveChanges();
-                Console.WriteLine("✅ Seed dữ liệu món ăn thành công!");
+                Console.WriteLine(" Seed dữ liệu món ăn thành công!");
             }
             else
             {
-                Console.WriteLine("⚠️ Dữ liệu món ăn đã tồn tại!");
+                Console.WriteLine(" Dữ liệu món ăn đã tồn tại!");
             }
         }
 
@@ -113,11 +113,11 @@ namespace DataLayer
 
                 context.Roles.AddRange(roles);
                 context.SaveChanges();
-                Console.WriteLine("✅ Seed dữ liệu vai trò thành công!");
+                Console.WriteLine(" Seed dữ liệu vai trò thành công!");
             }
             else
             {
-                Console.WriteLine("⚠️ Dữ liệu Role đã tồn tại!");
+                Console.WriteLine(" Dữ liệu Role đã tồn tại!");
             }
         }
 
@@ -182,11 +182,11 @@ namespace DataLayer
 
                 context.Users.AddRange(users);
                 context.SaveChanges();
-                Console.WriteLine("✅ Seed dữ liệu tài khoản thành công!");
+                Console.WriteLine(" Seed dữ liệu tài khoản thành công!");
             }
             else
             {
-                Console.WriteLine("⚠️ Dữ liệu User đã tồn tại!");
+                Console.WriteLine(" Dữ liệu User đã tồn tại!");
             }
         }
     }

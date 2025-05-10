@@ -14,6 +14,7 @@ namespace TransferObject
         [Column(TypeName = "decimal(18,3)")] 
         public decimal Price { get; set; }
         public string? Image { get; set; }
+        public SpicyLevel? Level { get; set; } 
         public string? Description { get; set; }
 
 
@@ -21,5 +22,16 @@ namespace TransferObject
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
+    }
+    public enum SpicyLevel
+    {
+        Level0,
+        Level1,
+        Level2, 
+        Level3,
+        Level4,
+        Level5,
+        Level6,
+        Level7
     }
 }

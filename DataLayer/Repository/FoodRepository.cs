@@ -21,20 +21,21 @@ namespace DataLayer.Repository
         }
         public void DeleteFood(int id)
         {
-            var food = _context.Foods.FirstOrDefault(f => f.Id == id);
+            var food = _context.Foods.FirstOrDefault(f => f.Id.Equals(id));
             if (food != null)
             {
                 _context.Foods.Remove(food);
                 _context.SaveChanges();
             }
         }
-        public Food GetFoodById(int id) => _context.Foods.FirstOrDefault(f => f.Id == id);
+        public Food GetFoodById(int id) => _context.Foods.FirstOrDefault(f => f.Id.Equals(id));
         public void UpdateFood(Food food)
         {
-            var existingFood = _context.Foods.FirstOrDefault(f => f.Id == food.Id);
+            var existingFood = _context.Foods.FirstOrDefault(f => f.Id.Equals(food.Id));
             if (existingFood != null)
             {
                 existingFood.Name = food.Name;
+                existingFood.Level = food.Level;
                 existingFood.Price = food.Price;
                 existingFood.Description = food.Description;
                 existingFood.Image = food.Image;
@@ -49,6 +50,6 @@ namespace DataLayer.Repository
                            .Where(f => f.Name.Contains(name))
                            .ToList();
         }
-        public List<Food> GetFoodByCategoryId(int categoryId) => _context.Foods.Where(f => f.CategoryId == categoryId).ToList();
+        public List<Food> GetFoodByCategoryId(int categoryId) => _context.Foods.Where(f => f.CategoryId.Equals(categoryId)).ToList();
     }
 }

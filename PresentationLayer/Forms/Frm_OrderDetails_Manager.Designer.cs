@@ -33,10 +33,12 @@
             groupBox_OrderDetail = new GroupBox();
             dgv_orderDetail = new DataGridView();
             Name = new DataGridViewTextBoxColumn();
+            SpicyLevel = new DataGridViewTextBoxColumn();
             Price = new DataGridViewTextBoxColumn();
             Quantity = new DataGridViewTextBoxColumn();
             SubTotal = new DataGridViewTextBoxColumn();
             FoodId = new DataGridViewTextBoxColumn();
+            TableId = new DataGridViewTextBoxColumn();
             button_saveOrderDetail = new Button();
             groupBox_OrderDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_orderDetail).BeginInit();
@@ -56,35 +58,32 @@
             tabControl_listCategory.Location = new Point(0, -1);
             tabControl_listCategory.Name = "tabControl_listCategory";
             tabControl_listCategory.SelectedIndex = 0;
-            tabControl_listCategory.Size = new Size(630, 608);
+            tabControl_listCategory.Size = new Size(633, 702);
             tabControl_listCategory.TabIndex = 1;
             // 
             // groupBox_OrderDetail
             // 
             groupBox_OrderDetail.Controls.Add(dgv_orderDetail);
             groupBox_OrderDetail.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            groupBox_OrderDetail.Location = new Point(636, 51);
+            groupBox_OrderDetail.Location = new Point(653, 51);
             groupBox_OrderDetail.Name = "groupBox_OrderDetail";
-            groupBox_OrderDetail.Size = new Size(515, 552);
+            groupBox_OrderDetail.Size = new Size(498, 552);
             groupBox_OrderDetail.TabIndex = 2;
             groupBox_OrderDetail.TabStop = false;
             groupBox_OrderDetail.Text = "Món ăn order : ";
             // 
             // dgv_orderDetail
             // 
-            dgv_orderDetail.AllowUserToAddRows = false;
-            dgv_orderDetail.AllowUserToDeleteRows = false;
+            dgv_orderDetail.AllowUserToOrderColumns = true;
             dgv_orderDetail.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_orderDetail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_orderDetail.Columns.AddRange(new DataGridViewColumn[] { Name, Price, Quantity, SubTotal, FoodId });
+            dgv_orderDetail.Columns.AddRange(new DataGridViewColumn[] { Name, SpicyLevel, Price, Quantity, SubTotal, FoodId, TableId });
             dgv_orderDetail.Dock = DockStyle.Fill;
             dgv_orderDetail.Location = new Point(3, 26);
             dgv_orderDetail.Name = "dgv_orderDetail";
-            dgv_orderDetail.ReadOnly = true;
             dgv_orderDetail.RowHeadersWidth = 51;
-            dgv_orderDetail.Size = new Size(509, 523);
+            dgv_orderDetail.Size = new Size(492, 523);
             dgv_orderDetail.TabIndex = 0;
-            dgv_orderDetail.CellContentClick += dgv_orderDetail_CellContentClick_1;
             // 
             // Name
             // 
@@ -92,6 +91,13 @@
             Name.MinimumWidth = 6;
             Name.Name = "Name";
             Name.ReadOnly = true;
+            // 
+            // SpicyLevel
+            // 
+            SpicyLevel.HeaderText = "Cấp độ";
+            SpicyLevel.MinimumWidth = 6;
+            SpicyLevel.Name = "SpicyLevel";
+            SpicyLevel.ReadOnly = true;
             // 
             // Price
             // 
@@ -120,15 +126,24 @@
             FoodId.MinimumWidth = 6;
             FoodId.Name = "FoodId";
             FoodId.ReadOnly = true;
+            FoodId.Visible = false;
+            // 
+            // TableId
+            // 
+            TableId.HeaderText = "TableId";
+            TableId.MinimumWidth = 6;
+            TableId.Name = "TableId";
+            TableId.ReadOnly = true;
+            TableId.Visible = false;
             // 
             // button_saveOrderDetail
             // 
             button_saveOrderDetail.BackColor = Color.Brown;
             button_saveOrderDetail.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
             button_saveOrderDetail.ForeColor = Color.Black;
-            button_saveOrderDetail.Location = new Point(636, 609);
+            button_saveOrderDetail.Location = new Point(653, 609);
             button_saveOrderDetail.Name = "button_saveOrderDetail";
-            button_saveOrderDetail.Size = new Size(515, 92);
+            button_saveOrderDetail.Size = new Size(498, 92);
             button_saveOrderDetail.TabIndex = 3;
             button_saveOrderDetail.Text = "Order";
             button_saveOrderDetail.UseVisualStyleBackColor = false;
@@ -162,9 +177,11 @@
         private Button button_saveOrderDetail;
         private DataGridView dgv_orderDetail;
         private DataGridViewTextBoxColumn Name;
+        private DataGridViewTextBoxColumn SpicyLevel;
         private DataGridViewTextBoxColumn Price;
         private DataGridViewTextBoxColumn Quantity;
         private DataGridViewTextBoxColumn SubTotal;
         private DataGridViewTextBoxColumn FoodId;
+        private DataGridViewTextBoxColumn TableId;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Service;
 using DataLayer.Service;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Globalization;
@@ -32,7 +33,26 @@ namespace PresentationLayer
 
         private void LoadFoods()
         {
-            try { dgv_listFood.DataSource = _foodService.GetAllFoods(); }
+            try { 
+                dgv_listFood.DataSource = _foodService.GetAllFoods();
+
+                if (dgv_listFood.Columns.Contains("Name"))
+                    dgv_listFood.Columns["Name"].HeaderText = "Tên món";
+
+                if (dgv_listFood.Columns.Contains("Price"))
+                    dgv_listFood.Columns["Price"].HeaderText = "Giá";
+
+                if (dgv_listFood.Columns.Contains("Image"))
+                    dgv_listFood.Columns["Image"].HeaderText = "Hình món";
+
+                if (dgv_listFood.Columns.Contains("Level"))
+
+                    dgv_listFood.Columns["Level"].HeaderText = "Cấp độ";
+
+                if (dgv_listFood.Columns.Contains("Description"))
+
+                    dgv_listFood.Columns["Description"].HeaderText = "Chú thích";
+            }
             catch (Exception ex) { ShowMessage("Lỗi khi tải danh sách món ăn", ex, MessageBoxIcon.Error); }
         }
 
@@ -199,7 +219,7 @@ namespace PresentationLayer
 
             // Đảm bảo ảnh hiển thị đúng và vừa khung
             pictureBox_foodImage.ImageLocation = food.Image;
-            pictureBox_foodImage.SizeMode = PictureBoxSizeMode.Zoom; // ✅ THÊM DÒNG NÀY
+            pictureBox_foodImage.SizeMode = PictureBoxSizeMode.Zoom; 
             pictureBox_foodImage.Tag = food.Image;
         }
 

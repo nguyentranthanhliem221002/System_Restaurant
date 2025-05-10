@@ -61,5 +61,25 @@ namespace PresentationLayer
                 Application.Exit();
             }
         }
+        private bool isPasswordVisible = false;  // Biến theo dõi trạng thái mật khẩu
+
+        private void btn_showPassword_Click(object sender, EventArgs e)
+        {
+            string hidePasswordPath = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\hidePassword.png";
+            string showPasswordPath = @"C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\PresentationLayer\Resources\showPassword.png";
+
+            if (isPasswordVisible)
+            {
+                txt_password.PasswordChar = '*';
+                btn_showPassword.BackgroundImage = Image.FromFile(hidePasswordPath);  
+            }
+            else
+            {
+                txt_password.PasswordChar = '\0';
+                btn_showPassword.BackgroundImage = Image.FromFile(showPasswordPath); 
+            }
+
+            isPasswordVisible = !isPasswordVisible;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Service;
 using DataLayer.Service;
+using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,14 @@ namespace PresentationLayer
             try
             {
                 dgv_listRole.DataSource = _roleService.GetAllRoles();
+
+                if (dgv_listRole.Columns.Contains("Name"))
+                    dgv_listRole.Columns["Name"].HeaderText = "Tên quyền";
+
+                if (dgv_listRole.Columns.Contains("Description"))
+                    dgv_listRole.Columns["Description"].HeaderText = "Chú thích";
+
+
                 if (dgv_listRole.Columns.Contains("Users"))
                 {
                     dgv_listRole.Columns["Users"].Visible = false;

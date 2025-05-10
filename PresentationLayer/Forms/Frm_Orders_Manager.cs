@@ -29,6 +29,22 @@ namespace PresentationLayer
             {
                 dgv_order.DataSource = _orderService.GetAllOrders();
 
+           
+                if (dgv_order.Columns.Contains("OrderDate"))
+                    dgv_order.Columns["OrderDate"].HeaderText = "Ngày order";
+
+                if (dgv_order.Columns.Contains("Total"))
+                    dgv_order.Columns["Total"].HeaderText = "Tổng tiền";
+
+                if (dgv_order.Columns.Contains("Status"))
+                    dgv_order.Columns["Status"].HeaderText = "Trạng thái";
+
+                if (dgv_order.Columns.Contains("UserId"))
+
+                    dgv_order.Columns["UserId"].HeaderText = "Quyền người thực hiện";
+
+
+
                 if (dgv_order.Columns.Contains("User"))
                 {
                     dgv_order.Columns["User"].Visible = false;

@@ -12,5 +12,8 @@ namespace DataLayer.IRepository
         List<User> SearchByUsername(string userName);
         void UpdateUser(User user);
         IEnumerable<User> GetUsersByRoleId(int roleId);
+        User GetUserByUserName(string userName);  
+
+        bool ChangePassword(string userName, string newPasswordHash);
     }
 }

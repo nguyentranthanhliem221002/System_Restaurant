@@ -57,5 +57,31 @@ namespace BusinessLayer.Service
         {
             return _userRepository.GetUsersByRoleId(roleId);
         }
+
+        public User GetUserByUserName(string userName)
+        {
+            try
+            {
+                return _userRepository.GetUserByUserName(userName);  
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi lấy thông tin người dùng: " + ex.Message);
+            }
+        }
+
+        public bool ChangePassword(string userName, string newPasswordHash)
+        {
+            try
+            {
+                return _userRepository.ChangePassword(userName, newPasswordHash);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi thay đổi mật khẩu: " + ex.Message);
+            }
+        }
+
+
     }
 }

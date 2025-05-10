@@ -15,9 +15,9 @@ namespace TransferObject
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; } = string.Empty; // Thêm tên bàn
+        public string Name { get; set; } = string.Empty; 
         [Required]
-        [Column(TypeName = "nvarchar(20)")] // Lưu trạng thái dạng chuỗi
+        [Column(TypeName = "nvarchar(20)")] 
         public TableStatus Status { get; set; } = TableStatus.Available;
 
         // Một Table có nhiều Order

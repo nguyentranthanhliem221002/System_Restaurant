@@ -9,3 +9,15 @@ D:\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.dll
 D:\System_Restaurant\TransferObject\obj\Debug\net7.0\refint\TransferObject.dll
 D:\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.pdb
 D:\System_Restaurant\TransferObject\obj\Debug\net7.0\ref\TransferObject.dll
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\bin\Debug\net7.0\TransferObject.deps.json
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\bin\Debug\net7.0\TransferObject.dll
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\bin\Debug\net7.0\TransferObject.pdb
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.AssemblyInfoInputs.cache
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.AssemblyInfo.cs
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.csproj.CoreCompileInputs.cache
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.sourcelink.json
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.dll
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\obj\Debug\net7.0\refint\TransferObject.dll
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\obj\Debug\net7.0\TransferObject.pdb
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\TransferObject\obj\Debug\net7.0\ref\TransferObject.dll

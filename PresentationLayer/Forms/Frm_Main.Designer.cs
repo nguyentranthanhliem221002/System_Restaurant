@@ -28,6 +28,7 @@ partial class frm_main
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main));
         panel_sidebar = new Panel();
         btn_frm_employees_manager = new Button();
@@ -37,6 +38,8 @@ partial class frm_main
         btn_frm_foods_manager = new Button();
         btn_frm_tables_manager = new Button();
         panel_nav = new Panel();
+        lbClock = new Label();
+        label2 = new Label();
         label1 = new Label();
         lb_frm_main_title = new Label();
         btn_exitFrm = new Button();
@@ -44,6 +47,7 @@ partial class frm_main
         btn_hideFrm = new Button();
         btn_smallFrm = new Button();
         panel_container = new Panel();
+        timerClock = new System.Windows.Forms.Timer(components);
         panel_sidebar.SuspendLayout();
         panel_nav.SuspendLayout();
         SuspendLayout();
@@ -131,6 +135,8 @@ partial class frm_main
         // panel_nav
         // 
         panel_nav.BackColor = Color.Tomato;
+        panel_nav.Controls.Add(lbClock);
+        panel_nav.Controls.Add(label2);
         panel_nav.Controls.Add(label1);
         panel_nav.Controls.Add(lb_frm_main_title);
         panel_nav.Controls.Add(btn_exitFrm);
@@ -142,12 +148,34 @@ partial class frm_main
         panel_nav.Size = new Size(1391, 88);
         panel_nav.TabIndex = 1;
         // 
+        // lbClock
+        // 
+        lbClock.AutoSize = true;
+        lbClock.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
+        lbClock.ForeColor = Color.White;
+        lbClock.Location = new Point(378, 33);
+        lbClock.Name = "lbClock";
+        lbClock.Size = new Size(22, 23);
+        lbClock.TabIndex = 6;
+        lbClock.Text = "...";
+        // 
+        // label2
+        // 
+        label2.AutoSize = true;
+        label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
+        label2.ForeColor = Color.White;
+        label2.Location = new Point(298, 33);
+        label2.Name = "label2";
+        label2.Size = new Size(82, 23);
+        label2.TabIndex = 7;
+        label2.Text = "Thời gian:";
+        // 
         // label1
         // 
         label1.AutoSize = true;
-        label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
+        label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
         label1.ForeColor = Color.White;
-        label1.Location = new Point(948, 40);
+        label1.Location = new Point(948, 33);
         label1.Name = "label1";
         label1.Size = new Size(128, 23);
         label1.TabIndex = 5;
@@ -164,6 +192,7 @@ partial class frm_main
         lb_frm_main_title.TabIndex = 3;
         lb_frm_main_title.Text = "System Restaurant";
         lb_frm_main_title.TextAlign = ContentAlignment.MiddleLeft;
+        lb_frm_main_title.Click += lb_frm_main_title_Click;
         // 
         // btn_exitFrm
         // 
@@ -181,11 +210,11 @@ partial class frm_main
         // 
         lb_roleName.AutoSize = true;
         lb_roleName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        lb_roleName.Location = new Point(1100, 33);
+        lb_roleName.Location = new Point(1098, 28);
         lb_roleName.Name = "lb_roleName";
-        lb_roleName.Size = new Size(39, 28);
+        lb_roleName.Size = new Size(24, 28);
         lb_roleName.TabIndex = 4;
-        lb_roleName.Text = "???";
+        lb_roleName.Text = "...";
         lb_roleName.TextAlign = ContentAlignment.MiddleLeft;
         // 
         // btn_hideFrm
@@ -198,6 +227,7 @@ partial class frm_main
         btn_hideFrm.TabIndex = 2;
         btn_hideFrm.Text = "-";
         btn_hideFrm.UseVisualStyleBackColor = false;
+        btn_hideFrm.Click += btn_hideFrm_Click;
         // 
         // btn_smallFrm
         // 
@@ -209,6 +239,7 @@ partial class frm_main
         btn_smallFrm.TabIndex = 1;
         btn_smallFrm.Text = "[ ]";
         btn_smallFrm.UseVisualStyleBackColor = false;
+        btn_smallFrm.Click += btn_smallFrm_Click;
         // 
         // panel_container
         // 
@@ -257,4 +288,7 @@ partial class frm_main
     private Button btn_frm_orders_manager;
     private Label lb_roleName;
     private Label label1;
+    private Label lbClock;
+    private System.Windows.Forms.Timer timerClock;
+    private Label label2;
 }

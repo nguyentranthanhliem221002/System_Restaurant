@@ -1,4 +1,5 @@
 ﻿using DataLayer.IRepository;
+using DataLayer.Repository;
 using TransferObject;
 
 namespace BusinessLayer.Service
@@ -7,19 +8,19 @@ namespace BusinessLayer.Service
     {
         private readonly IOrderDetailRepository _orderDetailRepository;
 
-        // Constructor để inject OrderDetailRepository vào trong Service
         public OrderDetailService(IOrderDetailRepository orderDetailRepository)
         {
             _orderDetailRepository = orderDetailRepository;
         }
 
-        // Phương thức lưu OrderDetail
+        public List<OrderDetail> GetAllOrderDetails() => _orderDetailRepository.GetAllOrderDetails();
+
+
         public void SaveOrderDetail(OrderDetail orderDetail)
         {
             _orderDetailRepository.SaveOrderDetail(orderDetail);
         }
 
-        // Phương thức lấy OrderDetails theo OrderId
         public IEnumerable<OrderDetail> GetOrderDetailsByOrderId(int orderId)
         {
             return _orderDetailRepository.GetOrderDetailsByOrderId(orderId);

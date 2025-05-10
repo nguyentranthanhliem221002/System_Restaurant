@@ -97,7 +97,7 @@
             lb_foodImage.AutoSize = true;
             lb_foodImage.BackColor = Color.Transparent;
             lb_foodImage.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            lb_foodImage.Location = new Point(472, 69);
+            lb_foodImage.Location = new Point(472, 107);
             lb_foodImage.Margin = new Padding(4, 0, 4, 0);
             lb_foodImage.Name = "lb_foodImage";
             lb_foodImage.Size = new Size(92, 23);
@@ -120,17 +120,17 @@
             // 
             // pictureBox_foodImage
             // 
-            pictureBox_foodImage.Location = new Point(472, 107);
+            pictureBox_foodImage.Location = new Point(472, 146);
             pictureBox_foodImage.Margin = new Padding(4, 3, 4, 3);
             pictureBox_foodImage.Name = "pictureBox_foodImage";
-            pictureBox_foodImage.Size = new Size(358, 155);
+            pictureBox_foodImage.Size = new Size(358, 116);
             pictureBox_foodImage.TabIndex = 10;
             pictureBox_foodImage.TabStop = false;
             // 
             // btn_loadImage
             // 
             btn_loadImage.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            btn_loadImage.Location = new Point(568, 63);
+            btn_loadImage.Location = new Point(572, 105);
             btn_loadImage.Margin = new Padding(4, 3, 4, 3);
             btn_loadImage.Name = "btn_loadImage";
             btn_loadImage.Size = new Size(166, 27);

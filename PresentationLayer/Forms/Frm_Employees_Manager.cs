@@ -90,21 +90,34 @@ namespace PresentationLayer.Forms
                 {
                     roleId = 2; // Employee
                 }
-
-                _userService.AddUser(new User
+                if (string.IsNullOrWhiteSpace(userFullName) ||
+                      string.IsNullOrWhiteSpace(userEmail) ||
+                      string.IsNullOrWhiteSpace(userNumberPhone) ||
+                      string.IsNullOrWhiteSpace(userUserName) ||
+                      string.IsNullOrWhiteSpace(txt_userPasswordHash.Text))
                 {
-                    FullName = userFullName,
-                    NumberPhone = userNumberPhone,
-                    Email = userEmail,
-                    DateStart = userDateStart,
-                    UserName = userUserName,
-                    PasswordHash = userPasswordHash,
-                    RoleId = roleId
-                });
+                    MessageBox.Show("Vui lòng điền đủ thông tin nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-                MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearUsers();
-                LoadUsers();
+                else
+                {
+                    _userService.AddUser(new User
+                    {
+                        FullName = userFullName,
+                        NumberPhone = userNumberPhone,
+                        Email = userEmail,
+                        DateStart = userDateStart,
+                        UserName = userUserName,
+                        PasswordHash = userPasswordHash,
+                        RoleId = roleId
+                    });
+
+                    MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearUsers();
+                    LoadUsers();
+                }
+               
             }
             catch (Exception ex)
             {
@@ -122,11 +135,10 @@ namespace PresentationLayer.Forms
                     int selectedUserId = (int)dgv_lisUser.SelectedRows[0].Cells["Id"].Value;
                     int selectedUserRole = (int)dgv_lisUser.SelectedRows[0].Cells["RoleId"].Value;
 
-                    // Kiểm tra nếu Role là Admin (RoleId = 1)
                     if (selectedUserRole == 1)
                     {
                         MessageBox.Show("Không thể xóa người dùng có vai trò Admin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return; // Dừng việc xóa người dùng
+                        return;
                     }
 
                     var confirm = MessageBox.Show("Bạn có chắc muốn xóa nhân viên này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -182,7 +194,7 @@ namespace PresentationLayer.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi nạp thông tin: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show($"Lỗi khi nạp thông tin: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -213,10 +225,8 @@ namespace PresentationLayer.Forms
                         }
                     }
 
-                    // Kiểm tra nếu người dùng thay đổi mật khẩu
                     if (!string.IsNullOrEmpty(userPassword))
                     {
-                        // Mã hóa mật khẩu mới
                         string hashedPassword = BCrypt.Net.BCrypt.HashPassword(userPassword);
                         _userService.UpdateUser(new User
                         {
@@ -227,7 +237,7 @@ namespace PresentationLayer.Forms
                             DateStart = userDateStart,
                             UserName = userUserName,
                             PasswordHash = hashedPassword, 
-                            RoleId = newRoleId // Cập nhật RoleId
+                            RoleId = newRoleId 
                         });
                     }
                     else
@@ -241,7 +251,7 @@ namespace PresentationLayer.Forms
                             Email = userEmail,
                             DateStart = userDateStart,
                             UserName = userUserName,
-                            RoleId = newRoleId // Cập nhật RoleId
+                            RoleId = newRoleId 
                         });
                     }
 

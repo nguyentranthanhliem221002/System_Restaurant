@@ -28,16 +28,18 @@ namespace PresentationLayer
             OrderService orderService,
             TableService tableService,
             frm_tables_manager frmTablesManager)
-        {
-            InitializeComponent();
+            {
+                InitializeComponent();
 
-            _foodService = foodService ?? throw new ArgumentNullException(nameof(foodService));
-            _categoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
-            _orderDetailService = orderDetailService ?? throw new ArgumentNullException(nameof(orderDetailService));
-            _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
-            _tableService = tableService ?? throw new ArgumentNullException(nameof(tableService));
-            _frmTablesManager = frmTablesManager ?? throw new ArgumentNullException(nameof(frmTablesManager));
-        }
+                _foodService = foodService ?? throw new ArgumentNullException(nameof(foodService));
+                _categoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
+                _orderDetailService = orderDetailService ?? throw new ArgumentNullException(nameof(orderDetailService));
+                _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
+                _tableService = tableService ?? throw new ArgumentNullException(nameof(tableService));
+                _frmTablesManager = frmTablesManager ?? throw new ArgumentNullException(nameof(frmTablesManager));
+
+
+             }
 
         private void frm_orderDetails_manager_Load(object sender, EventArgs e) => LoadCategoriesAndFoods();
 
@@ -55,11 +57,36 @@ namespace PresentationLayer
             }
         }
 
+        //private Table GetFocusedTable() => tabControl_listCategory.Controls
+        //.OfType<Button>()
+        //.FirstOrDefault(btn => btn.Focused)?.Tag as Table;
+
+
+        //private Button _selectedFoodButton;
+
+
+        //private void OrderItem_Click(object sender, EventArgs e)
+        //{
+        //    if (sender is ToolStripMenuItem item && item.Tag is int level && _selectedFoodButton != null)
+        //    {
+        //        var orderDetail = _selectedFoodButton.Tag as OrderDetail; 
+
+        //        if (orderDetail == null)
+        //            return;
+
+              
+        //        dgv_orderDetail.Rows.Add(orderDetail.Food.Name, orderDetail.Food.Level, orderDetail.Food.Price, orderDetail.SubTotal, orderDetail.FoodId); 
+
+        //        // Reset sau khi dùng xong
+        //        _selectedFoodButton = null;
+        //    }
+        //}
+
         private FlowLayoutPanel CreateFoodFlowPanel(Category category)
         {
             var flowPanel = new FlowLayoutPanel {
                 Dock = DockStyle.Fill,
-                AutoScroll = true, // Bật tính năng cuộn tự động
+                AutoScroll = true, 
          
             };
 
@@ -68,14 +95,14 @@ namespace PresentationLayer
                 var btnFood = new Button
                 {
                     Text = food.Name,
-                    Width = 280,
-                    Height = 300,
+                    Width = 295,
+                    Height = 305,
                     Tag = food,
                     TextAlign = ContentAlignment.BottomCenter,
-                    BackgroundImageLayout = ImageLayout.Stretch // Cách hiển thị ảnh bên trong Button
+                    BackgroundImageLayout = ImageLayout.Stretch,
                 };
+           
 
-                // Đảm bảo rằng ảnh nền được lấy đúng từ thư mục Resources
                 var imagePath = Path.Combine(Application.StartupPath, "Resources", food.Image);
                 if (File.Exists(imagePath)) // Kiểm tra sự tồn tại của tệp ảnh
                 {
@@ -120,7 +147,7 @@ namespace PresentationLayer
 
         private void AddNewOrder(Food food)
         {
-            dgv_orderDetail.Rows.Add(food.Name, food.Price.ToString(), 1, food.Price.ToString(), food.Id);
+            dgv_orderDetail.Rows.Add(food.Name, food.Level , food.Price.ToString(), 1, food.Price.ToString(), food.Id);
         }
 
         public void SetTableInfo(Table selectedTable)
@@ -135,7 +162,7 @@ namespace PresentationLayer
 
             try
             {
-                DisplayOrders(_orderService.GetOrdersByTableId(_selectedTable.Id));
+                LoadOrderDetail(_orderService.GetOrdersByTableId(_selectedTable.Id));
             }
             catch (Exception ex)
             {
@@ -143,23 +170,19 @@ namespace PresentationLayer
             }
         }
 
-        private void DisplayOrders(List<OrderDetail> orders)
-        {
+        private void LoadOrderDetail(List<OrderDetail> orders)
+        { 
             dgv_orderDetail.Rows.Clear();
-
-            //if (_tableService.GetLatestTableStatus(_selectedTable.Id) != TableStatus.Ordered)
-            //{
-            //    MessageBox.Show("Chỉ hiển thị chi tiết món ăn khi bàn đang ở trạng thái đã đặt món.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    return;
-            //}
 
             foreach (var order in orders)
             {
                 dgv_orderDetail.Rows.Add(order.Food?.Name ?? "Món ăn không có thông tin",
+                                          order.Food.Level,
                                           order.Food?.Price.ToString() ?? "N/A",
                                           order.Quantity,
                                           (order.Quantity * (order.Food?.Price ?? 0)).ToString(),
-                                          order.FoodId);
+                                          order.FoodId
+                                          );
             }
         }
 
@@ -170,16 +193,17 @@ namespace PresentationLayer
                 .Select(row => new TemporaryOrderDetail
                 {
                     FoodName = row.Cells[0].Value.ToString(),
-                    Price = decimal.Parse(row.Cells[1].Value.ToString()),
-                    Quantity = int.Parse(row.Cells[2].Value.ToString()),
-                    SubTotal = decimal.Parse(row.Cells[3].Value.ToString()),
-                    FoodId = int.Parse(row.Cells[4].Value.ToString()),
+                    Level = Enum.Parse<SpicyLevel>(row.Cells[1].Value.ToString()),
+                    Price = decimal.Parse(row.Cells[2].Value.ToString()),
+                    Quantity = int.Parse(row.Cells[3].Value.ToString()),
+                    SubTotal = decimal.Parse(row.Cells[4].Value.ToString()),
+                    FoodId = int.Parse(row.Cells[5].Value.ToString()),
                     TableId = _selectedTable.Id
                 })
                 .ToList();
         }
 
-        public void DisplayTemporaryOrderDetails()
+        public void LoadTemporaryOrderDetails()
         {
             dgv_orderDetail.Rows.Clear();
 
@@ -190,7 +214,7 @@ namespace PresentationLayer
 
             foreach (var item in filteredOrderDetails)
             {
-                dgv_orderDetail.Rows.Add(item.FoodName, item.Price.ToString(), item.Quantity.ToString(), item.SubTotal.ToString(), item.FoodId);
+                dgv_orderDetail.Rows.Add(item.FoodName, item.Level, item.Price.ToString(), item.Quantity.ToString(), item.SubTotal.ToString(), item.FoodId, item.TableId);
             }
         }
 
@@ -212,7 +236,7 @@ namespace PresentationLayer
 
             if (TemporaryDataStorage.TemporaryOrderDetails.Any())
             {
-                DisplayTemporaryOrderDetails();
+                LoadTemporaryOrderDetails();
             }
 
             _tableService.UpdateTableStatus(_selectedTable.Id, TableStatus.Ordered);
@@ -221,14 +245,6 @@ namespace PresentationLayer
             MessageBox.Show("Lưu đơn hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void lb_tableNumber_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgv_orderDetail_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+   
     }
 }

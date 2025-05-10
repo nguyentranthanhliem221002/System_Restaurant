@@ -36,10 +36,10 @@
             txt_userName = new TextBox();
             txt_password = new TextBox();
             btn_submit = new Button();
-            linkLabel_register = new LinkLabel();
             btn_hideFrm = new Button();
             btn_smallFrm = new Button();
             btn_exitFrm = new Button();
+            btn_showPassword = new Button();
             SuspendLayout();
             // 
             // lb_frm_login_title
@@ -95,7 +95,7 @@
             txt_password.Location = new Point(763, 309);
             txt_password.Name = "txt_password";
             txt_password.PasswordChar = '*';
-            txt_password.Size = new Size(286, 27);
+            txt_password.Size = new Size(319, 27);
             txt_password.TabIndex = 7;
             // 
             // btn_submit
@@ -110,17 +110,6 @@
             btn_submit.Text = "Đăng nhập";
             btn_submit.UseVisualStyleBackColor = false;
             btn_submit.Click += btn_submit_Click;
-            // 
-            // linkLabel_register
-            // 
-            linkLabel_register.AutoSize = true;
-            linkLabel_register.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic);
-            linkLabel_register.Location = new Point(986, 356);
-            linkLabel_register.Name = "linkLabel_register";
-            linkLabel_register.Size = new Size(71, 23);
-            linkLabel_register.TabIndex = 9;
-            linkLabel_register.TabStop = true;
-            linkLabel_register.Text = "Đăng ký";
             // 
             // btn_hideFrm
             // 
@@ -156,16 +145,28 @@
             btn_exitFrm.UseVisualStyleBackColor = false;
             btn_exitFrm.Click += btn_exitFrm_Click;
             // 
+            // btn_showPassword
+            // 
+            btn_showPassword.BackColor = SystemColors.GradientInactiveCaption;
+            btn_showPassword.BackgroundImage = (Image)resources.GetObject("btn_showPassword.BackgroundImage");
+            btn_showPassword.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_showPassword.Location = new Point(1042, 307);
+            btn_showPassword.Name = "btn_showPassword";
+            btn_showPassword.Size = new Size(42, 29);
+            btn_showPassword.TabIndex = 82;
+            btn_showPassword.UseVisualStyleBackColor = false;
+            btn_showPassword.Click += btn_showPassword_Click;
+            // 
             // frm_login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSalmon;
             ClientSize = new Size(1163, 713);
+            Controls.Add(btn_showPassword);
             Controls.Add(btn_hideFrm);
             Controls.Add(btn_smallFrm);
             Controls.Add(btn_exitFrm);
-            Controls.Add(linkLabel_register);
             Controls.Add(btn_submit);
             Controls.Add(txt_password);
             Controls.Add(txt_userName);
@@ -190,9 +191,9 @@
         private TextBox txt_userName;
         private TextBox txt_password;
         private Button btn_submit;
-        private LinkLabel linkLabel_register;
         private Button btn_hideFrm;
         private Button btn_smallFrm;
         private Button btn_exitFrm;
+        private Button btn_showPassword;
     }
 }

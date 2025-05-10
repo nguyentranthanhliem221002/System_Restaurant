@@ -69,6 +69,7 @@ namespace PresentationLayer
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IMomoRepository, MomoRepository>();
 
 
             // Đăng ký Service
@@ -79,6 +80,7 @@ namespace PresentationLayer
             services.AddScoped<OrderDetailService>();
             services.AddScoped<UserService>();
             services.AddScoped<RoleService>();
+            services.AddScoped<MomoService>();
 
 
             // Đăng ký Forms với DI

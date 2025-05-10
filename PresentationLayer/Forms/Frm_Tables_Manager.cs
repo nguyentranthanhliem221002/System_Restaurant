@@ -13,16 +13,18 @@ namespace PresentationLayer
     {
         private readonly TableService _tableService;
         private readonly OrderService _orderService;
+        private readonly MomoService _momoService;
         private readonly OrderDetailService _orderDetailService;
         private readonly IServiceProvider _serviceProvider;
         private readonly ContextMenuStrip _contextMenuStrip;
 
-        public frm_tables_manager(TableService tableService, OrderService orderService, IServiceProvider serviceProvider, OrderDetailService orderDetailService)
+        public frm_tables_manager(TableService tableService, OrderService orderService, IServiceProvider serviceProvider, OrderDetailService orderDetailService, MomoService momoService)
         {
             InitializeComponent();
             _tableService = tableService ?? throw new ArgumentNullException(nameof(tableService));
             _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
             _orderService = orderService ?? throw new ArgumentNullException(nameof(orderService));
+            _momoService = momoService ?? throw new ArgumentNullException(nameof(momoService));
             _orderDetailService = orderDetailService ?? throw new ArgumentNullException(nameof(orderDetailService));
             _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
 
@@ -41,6 +43,18 @@ namespace PresentationLayer
             try
             {
                 var tables = _tableService.GetAllTables();
+
+                foreach (var table in tables)
+                {
+                    if (table.Status == TableStatus.Ordered &&
+                        (!TemporaryDataStorage.TemporaryOrderDetails.ContainsKey(table.Id) ||
+                         !TemporaryDataStorage.TemporaryOrderDetails[table.Id].Any()))
+                    {
+                        _tableService.UpdateTableStatus(table.Id, TableStatus.Available);
+                        table.Status = TableStatus.Available; 
+                    }
+                }
+
                 flowLayoutPanel_listTable.Controls.Clear();
 
                 foreach (var table in tables)
@@ -48,10 +62,10 @@ namespace PresentationLayer
                     var btnTable = new Button
                     {
                         Text = $"Bàn {table.Id}",
-                        Width = 100,
-                        Height = 100,
+                        Width = 120,
+                        Height = 120,
                         Tag = table,
-                        BackColor = GetTableColor(_tableService.GetLatestTableStatus(table.Id)),
+                        BackColor = GetTableColor(table.Status), // dùng trạng thái đã cập nhật
                         ContextMenuStrip = _contextMenuStrip
                     };
                     btnTable.Click += (s, e) => DisplayTableDetails(table.Id);
@@ -114,14 +128,14 @@ namespace PresentationLayer
             {
                 var frmOrderDetail = _serviceProvider.GetRequiredService<frm_orderDetails_manager>();
                 frmOrderDetail.SetTableInfo(selectedTable);
-                frmOrderDetail.DisplayTemporaryOrderDetails();
+                frmOrderDetail.LoadTemporaryOrderDetails();
                 frmMain.OpenChildForm(frmOrderDetail);
             }
         }
 
         private void DeleteItem_Click(object sender, EventArgs e) => MessageBox.Show("Chức năng chưa được cập nhật!");
 
-        private void btn_pay_Click(object sender, EventArgs e)
+        private async void btn_pay_Click(object sender, EventArgs e)
         {
             var selectedTable = flowLayoutPanel_listTable.Controls
                 .OfType<Button>()
@@ -139,19 +153,42 @@ namespace PresentationLayer
                 return;
             }
 
-            // Giả sử bạn có đối tượng Order liên quan đến bàn này
-            var order = GetOrderForTable(selectedTable); // Bạn cần có một phương thức để lấy đối tượng Order cho bàn này
-
-            // Nếu chọn Momo thì hiển thị mã QR trước
-            if (radioButton_optionMomo.Checked)
+            var order = GetOrderForTable(selectedTable);
+            if (order == null)
             {
-                //ShowMomoQRCode(selectedTable, order);
-                ShowMomoQRCode(selectedTable);
-
-                return; // Đợi quét QR xong rồi mới thanh toán
+                MessageBox.Show("Không tìm thấy đơn hàng cho bàn này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            // Xử lý thanh toán bình thường
+            if (radioButton_optionMomo.Checked)
+            {
+                try
+                {
+                    string orderId = $"ORDER_{DateTime.Now.Ticks}";
+                    //long amount = 500000; // Hoặc tính tổng giá trị đơn hàng thực tế nếu có
+
+                    string payUrl = await _momoService.CreateMomoPaymentAsync();
+
+                    if (string.IsNullOrWhiteSpace(payUrl))
+                    {
+                        MessageBox.Show("Không thể tạo thanh toán MoMo. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    ShowMomoQRCode(selectedTable, payUrl);
+                }
+                catch (KeyNotFoundException keyEx)
+                {
+                    MessageBox.Show($"Lỗi dữ liệu trả về từ MoMo: {keyEx.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tạo thanh toán MoMo: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                return;
+            }
+
             CompletePayment(selectedTable);
         }
 
@@ -188,7 +225,9 @@ namespace PresentationLayer
         //    qrForm.Controls.Add(pictureBox);
         //    qrForm.ShowDialog();
         //}
-        private void ShowMomoQRCode(Table table)
+
+
+        private void ShowMomoQRCode(Table table, string payUrl)
         {
             var qrForm = new Form
             {
@@ -203,33 +242,62 @@ namespace PresentationLayer
                 SizeMode = PictureBoxSizeMode.Zoom
             };
 
-            // Đảm bảo tên tài nguyên đúng với namespace và đường dẫn của file hình ảnh
-            var assembly = Assembly.GetExecutingAssembly();
-            string resourceName = "PresentationLayer.Resources.QR_MOMO.jpg"; // Đảm bảo đúng đường dẫn tài nguyên trong assembly
-
-            using (var stream = assembly.GetManifestResourceStream(resourceName))
+            // Tạo mã QR từ payUrl
+            using (var qrGenerator = new QRCodeGenerator())
             {
-                if (stream != null)
-                {
-                    try
-                    {
-                        pictureBox.Image = Image.FromStream(stream);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Lỗi khi tải hình ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Không tìm thấy tài nguyên hình ảnh QR_MOMO. Kiểm tra lại tên tài nguyên và cấu trúc thư mục.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                var qrCodeData = qrGenerator.CreateQrCode(payUrl, QRCodeGenerator.ECCLevel.Q);
+                var qrCode = new QRCode(qrCodeData);
+                pictureBox.Image = qrCode.GetGraphic(10);
             }
 
-            // Thêm PictureBox vào form và hiển thị
             qrForm.Controls.Add(pictureBox);
             qrForm.ShowDialog();
         }
+
+
+
+        //private void ShowMomoQRCode(Table table)
+        //{
+        //    var qrForm = new Form
+        //    {
+        //        Text = $"Thanh toán MoMo - Bàn {table.Id}",
+        //        Size = new Size(300, 350),
+        //        StartPosition = FormStartPosition.CenterParent
+        //    };
+
+        //    var pictureBox = new PictureBox
+        //    {
+        //        Dock = DockStyle.Fill,
+        //        SizeMode = PictureBoxSizeMode.Zoom
+        //    };
+
+        //    // Đảm bảo tên tài nguyên đúng với namespace và đường dẫn của file hình ảnh
+        //    var assembly = Assembly.GetExecutingAssembly();
+        //    string resourceName = "PresentationLayer.Resources.QR_MOMO.jpg"; // Đảm bảo đúng đường dẫn tài nguyên trong assembly
+
+        //    using (var stream = assembly.GetManifestResourceStream(resourceName))
+        //    {
+        //        if (stream != null)
+        //        {
+        //            try
+        //            {
+        //                pictureBox.Image = Image.FromStream(stream);
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                MessageBox.Show($"Lỗi khi tải hình ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Không tìm thấy tài nguyên hình ảnh QR_MOMO. Kiểm tra lại tên tài nguyên và cấu trúc thư mục.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+
+        //    // Thêm PictureBox vào form và hiển thị
+        //    qrForm.Controls.Add(pictureBox);
+        //    qrForm.ShowDialog();
+        //}
 
         private Order GetOrderForTable(Table selectedTable)
         {
@@ -240,7 +308,6 @@ namespace PresentationLayer
 
         private void CompletePayment(Table selectedTable)
         {
-            // Giả lập hoàn tất thanh toán
             _tableService.CompletePayment(selectedTable.Id);
             selectedTable.Status = TableStatus.Available;
             UpdateTableColor(selectedTable.Id, Color.White);
@@ -304,25 +371,22 @@ namespace PresentationLayer
                 return;
             }
 
-            // Lấy id của bàn và gọi SaveOrderToExcel
-            SaveOrderToExcel(selectedTable.Id); // Truyền tableId vào đây
+            SaveOrderToExcel(selectedTable.Id); 
         }
         private void SaveOrderToExcel(int tableId)
         {
-            // Lấy tất cả OrderDetail từ ListView thay vì từ service
             var orderDetails = new List<OrderDetail>();
 
-            // Giả sử listView_orderDetail là tên ListView chứa các chi tiết đơn hàng
             foreach (ListViewItem item in listView_orderDetail.Items)
             {
                 var orderDetail = new OrderDetail
                 {
                     Food = new Food
                     {
-                        Name = item.SubItems[0].Text,  // Tên món (SubItem[0] chứa tên món)
-                        Price = Convert.ToDecimal(item.SubItems[1].Text)  // Giá món (SubItem[1] chứa giá)
+                        Name = item.SubItems[0].Text,  
+                        Price = Convert.ToDecimal(item.SubItems[1].Text) 
                     },
-                    Quantity = Convert.ToInt32(item.SubItems[2].Text)  // Số lượng (SubItem[2] chứa số lượng)
+                    Quantity = Convert.ToInt32(item.SubItems[2].Text)  
                 };
 
                 orderDetails.Add(orderDetail);

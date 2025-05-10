@@ -47,13 +47,11 @@ public class UserRepository : IUserRepository
         }
     }
 
-    // Tìm kiếm người dùng theo tên đăng nhập
     public List<User> SearchByUsername(string userName)
     {
         return _context.Users.Where(u => u.UserName.Contains(userName)).ToList();
     }
 
-    // Cập nhật thông tin người dùng
     public void UpdateUser(User user)
     {
         // Tìm người dùng trong cơ sở dữ liệu theo ID
@@ -90,5 +88,37 @@ public class UserRepository : IUserRepository
     {
         return _context.Users.Where(u => u.RoleId == roleId).ToList();
     }
+
+    public User GetUserByUserName(string userName)
+    {
+        try
+        {
+            return _context.Users.FirstOrDefault(u => u.UserName == userName);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Lỗi khi lấy thông tin người dùng: " + ex.Message);
+        }
+    }
+
+    public bool ChangePassword(string userName, string newPasswordHash)
+    {
+        try
+        {
+            var user = _context.Users.FirstOrDefault(u => u.UserName == userName);
+            if (user != null)
+            {
+                user.PasswordHash = newPasswordHash;
+                _context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Lỗi khi thay đổi mật khẩu: " + ex.Message);
+        }
+    }
+
 
 }

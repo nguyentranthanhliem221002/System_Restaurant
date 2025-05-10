@@ -67,13 +67,12 @@ namespace DataLayer.Repository
                         TableId = tableId,
                         OrderDate = DateTime.Now,
                         Total = temporaryOrderDetails.Sum(item => item.SubTotal),
-                        UserId = CurrentUser.UserId // Giả sử CurrentUser được lấy hợp lệ
+                        UserId = CurrentUser.UserId 
                     };
 
                     _context.Orders.Add(order);
-                    _context.SaveChanges(); // Lưu để có Order.Id
+                    _context.SaveChanges(); 
 
-                    // Lưu chi tiết đơn hàng
                     foreach (var item in temporaryOrderDetails)
                     {
                         // Kiểm tra nếu FoodId hợp lệ
@@ -100,12 +99,11 @@ namespace DataLayer.Repository
 
                     _context.SaveChanges(); // Lưu OrderDetails
 
-                    // Cập nhật trạng thái bàn
                     table.Status = TableStatus.Available;
                     _context.SaveChanges();
 
                     // Xóa dữ liệu tạm sau khi lưu xong
-                    TemporaryDataStorage.TemporaryOrderDetails[tableId].Clear(); // Xóa dữ liệu tạm cho bàn này
+                    TemporaryDataStorage.TemporaryOrderDetails[tableId].Clear();
                 }
                 else
                 {
@@ -146,7 +144,7 @@ namespace DataLayer.Repository
                     table1.Status = table2.Status;
                     table2.Status = tmpStatus;
 
-                    _context.SaveChanges(); // Lưu lại DB
+                    _context.SaveChanges(); 
                 }
             }
             catch (Exception ex)

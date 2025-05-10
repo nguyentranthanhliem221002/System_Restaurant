@@ -12,6 +12,7 @@ namespace DataLayer.Repository
         {
             _context = context;
         }
+        public List<OrderDetail> GetAllOrderDetails() => _context.OrderDetails.ToList();
 
         // Phương thức lưu OrderDetail
         public void SaveOrderDetail(OrderDetail orderDetail)

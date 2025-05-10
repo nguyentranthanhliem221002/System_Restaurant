@@ -15,3 +15,21 @@ D:\System_Restaurant\DataLayer\obj\Debug\net7.0\refint\DataLayer.dll
 D:\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.pdb
 D:\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.genruntimeconfig.cache
 D:\System_Restaurant\DataLayer\obj\Debug\net7.0\ref\DataLayer.dll
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\bin\Debug\net7.0\DataLayer.deps.json
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\bin\Debug\net7.0\DataLayer.runtimeconfig.json
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\bin\Debug\net7.0\DataLayer.dll
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\bin\Debug\net7.0\DataLayer.pdb
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\bin\Debug\net7.0\TransferObject.dll
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\bin\Debug\net7.0\TransferObject.pdb
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.csproj.AssemblyReference.cache
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.AssemblyInfoInputs.cache
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.AssemblyInfo.cs
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.sourcelink.json
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.csproj.Up2Date
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.dll
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\refint\DataLayer.dll
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.pdb
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\DataLayer.genruntimeconfig.cache
+C:\Users\nguye\OneDrive\Máy tính\System_Restaurant\DataLayer\obj\Debug\net7.0\ref\DataLayer.dll

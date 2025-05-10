@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\System_Restaurant\\TransferObject\\TransferObject.csproj": {}
+    "C:\\Users\\nguye\\OneDrive\\Máy tính\\System_Restaurant\\TransferObject\\TransferObject.csproj": {}
   },
   "projects": {
-    "D:\\System_Restaurant\\TransferObject\\TransferObject.csproj": {
+    "C:\\Users\\nguye\\OneDrive\\Máy tính\\System_Restaurant\\TransferObject\\TransferObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\System_Restaurant\\TransferObject\\TransferObject.csproj",
+        "projectUniqueName": "C:\\Users\\nguye\\OneDrive\\Máy tính\\System_Restaurant\\TransferObject\\TransferObject.csproj",
         "projectName": "TransferObject",
-        "projectPath": "D:\\System_Restaurant\\TransferObject\\TransferObject.csproj",
+        "projectPath": "C:\\Users\\nguye\\OneDrive\\Máy tính\\System_Restaurant\\TransferObject\\TransferObject.csproj",
         "packagesPath": "C:\\Users\\nguye\\.nuget\\packages\\",
-        "outputPath": "D:\\System_Restaurant\\TransferObject\\obj\\",
+        "outputPath": "C:\\Users\\nguye\\OneDrive\\Máy tính\\System_Restaurant\\TransferObject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
